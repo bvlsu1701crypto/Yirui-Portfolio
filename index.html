@@ -156,7 +156,7 @@ body::after {
   position: relative;
   overflow: hidden;
   border: none;
-  background-image: url('file:///Users/beverlysu/Desktop/%E6%89%BE%E5%B7%A5/%E7%85%A7%E7%89%87_2026-03-11_162717.JPG') !important;
+  background-image: url('./images/cover.jpg') !important;
   background-size: calc(600% + 0.8px) calc(300% + 0.8px) !important;
   background-repeat: no-repeat !important;
   background-position: var(--cell-x, 0%) var(--cell-y, 0%) !important;
@@ -256,7 +256,7 @@ body::after {
   position: absolute;
   inset: 0;
   z-index: 3;
-  background-image: url('file:///Users/beverlysu/Desktop/%E6%89%BE%E5%B7%A5/%E7%85%A7%E7%89%87_2026-03-11_162717.JPG');
+  background-image: url('./images/cover.jpg');
   background-size: calc(600% + 0.8px) calc(300% + 0.8px);
   background-repeat: no-repeat;
   background-position: var(--cover-x, 0%) var(--cover-y, 0%);
@@ -1475,7 +1475,7 @@ document.addEventListener('keydown', e => {
 
     // Reveal 测试图：03（wechat）
     if (key === 'wechat') {
-      const testReveal = "file:///Users/beverlysu/Desktop/%E6%9C%AA%E6%A0%87%E9%A2%98-8.png";
+      const testReveal = "./images/reveal-03.png";
       const imgLayer = cell.querySelector('.cell-img');
       const placeholder = cell.querySelector('.img-placeholder');
       if (imgLayer) {
@@ -1489,7 +1489,7 @@ document.addEventListener('keydown', e => {
 
     // Reveal 测试图：02（vintage）
     if (key === 'vintage') {
-      const testReveal = "file:///Users/beverlysu/Desktop/222.png";
+      const testReveal = "./images/reveal-02.png";
       const imgLayer = cell.querySelector('.cell-img');
       const placeholder = cell.querySelector('.img-placeholder');
       if (imgLayer) {
@@ -1503,7 +1503,7 @@ document.addEventListener('keydown', e => {
 
     // Reveal 测试图：01（nuo）
     if (key === 'nuo') {
-      const testReveal = "file:///Users/beverlysu/Desktop/%E8%80%81%E8%99%8E.png";
+      const testReveal = "./images/reveal-01.png";
       const imgLayer = cell.querySelector('.cell-img');
       const placeholder = cell.querySelector('.img-placeholder');
       if (imgLayer) {
