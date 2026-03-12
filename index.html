@@ -1086,6 +1086,42 @@ function placeholderHTML(key) {
   `;
 }
 
+const m8HTML = `
+<div class="detail-header">
+  <div class="detail-num">05</div>
+  <div class="detail-title">Other Works</div>
+  <div class="detail-title-cn">其他作品</div>
+  <span class="detail-type">Selected Projects</span>
+</div>
+
+<div class="detail-section">
+  <div class="detail-section-label">Selected Works</div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:16px;">
+
+    <div>
+      <h3 class="section-heading" style="margin-bottom:12px;">01 — Generative Media Creation<br><span class="cn-sub">生成式媒体创作</span></h3>
+      <div class="img-placeholder-block tall">img/other-01.jpg</div>
+    </div>
+
+    <div>
+      <h3 class="section-heading" style="margin-bottom:12px;">02 — Interactive Design of "Wind"<br><span class="cn-sub">《风》交互设计</span></h3>
+      <div class="img-placeholder-block tall">img/other-02.jpg</div>
+    </div>
+
+    <div>
+      <h3 class="section-heading" style="margin-bottom:12px;">03 — The Black Box · AI Art Project<br><span class="cn-sub">黑盒 AI 艺术探索</span></h3>
+      <div class="img-placeholder-block tall">img/other-03.jpg</div>
+    </div>
+
+    <div>
+      <h3 class="section-heading" style="margin-bottom:12px;">04 — The Whale Installation Art<br><span class="cn-sub">场地装置设计</span></h3>
+      <div class="img-placeholder-block tall">img/other-04.jpg</div>
+    </div>
+
+  </div>
+</div>
+`;
+
 const detailHTML = {
   nuo:     nuoHTML,
   wechat: `
@@ -1425,7 +1461,7 @@ const detailHTML = {
 </div>
 `,
   photo:   placeholderHTML('photo'),
-  m8:      placeholderHTML('m8'),
+  m8:      m8HTML,
 };
 
 // ── open / close ──────────────────────────────────────────────────────────
