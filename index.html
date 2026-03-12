@@ -1529,16 +1529,30 @@ document.addEventListener('keydown', e => {
       if (placeholder) placeholder.style.display = 'none';
     }
 
-    // Reveal 测试图：01（nuo）
+    // Reveal 测试视频：01（nuo）
     if (key === 'nuo') {
-      const testReveal = "./images/reveal-01.png";
+      const testRevealVideo = "./images/reveal-01.mp4";
       const imgLayer = cell.querySelector('.cell-img');
       const placeholder = cell.querySelector('.img-placeholder');
       if (imgLayer) {
-        imgLayer.style.backgroundImage = `url('${testReveal}')`;
-        imgLayer.style.backgroundSize = 'cover';
-        imgLayer.style.backgroundPosition = 'center';
-        imgLayer.style.backgroundRepeat = 'no-repeat';
+        imgLayer.style.backgroundImage = 'none';
+        let video = imgLayer.querySelector('video.reveal-video');
+        if (!video) {
+          video = document.createElement('video');
+          video.className = 'reveal-video';
+          video.autoplay = true;
+          video.loop = true;
+          video.muted = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          video.style.width = '100%';
+          video.style.height = '100%';
+          video.style.objectFit = 'cover';
+          video.style.display = 'block';
+          video.style.pointerEvents = 'none';
+          imgLayer.appendChild(video);
+        }
+        video.src = testRevealVideo;
       }
       if (placeholder) placeholder.style.display = 'none';
     }
