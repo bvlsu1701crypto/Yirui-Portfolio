@@ -761,6 +761,8 @@ body::after {
     position: relative;
     grid-template-columns: repeat(3, 1fr) !important;
     grid-template-rows: repeat(4, 1fr) !important;
+    grid-auto-rows: 0 !important;
+    overflow: hidden !important;
     gap: 1px !important;
     background: transparent !important;
   }
@@ -799,9 +801,14 @@ body::after {
     display: block !important;
   }
 
+  .grid > .cell:nth-child(n+13):not(.cell-project) {
+    display: none !important;
+  }
+
   .cell-project {
     margin: 0 !important;
     min-height: 0;
+    z-index: 6 !important;
   }
 
   .cell-project::before {
