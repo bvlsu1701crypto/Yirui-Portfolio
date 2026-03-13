@@ -1981,11 +1981,11 @@ document.addEventListener('keydown', e => {
   openDetail(key);
 
   const heroMap = {
-    nuo: './images/reveal-01.mp4',
-    wechat: './images/reveal-02.mp4',
-    vintage: './images/reveal-03.mp4',
-    photo: './images/reveal-04.mp4',
-    m8: './images/reveal-05.mp4'
+    nuo: './images/mobile-reveal-01.m4v',
+    wechat: './images/mobile-reveal-02.m4v',
+    vintage: './images/mobile-reveal-03.m4v',
+    photo: './images/mobile-reveal-04.m4v',
+    m8: './images/mobile-reveal-05.m4v'
   };
 
   const detailContent = document.getElementById('detailContent');
@@ -2014,7 +2014,7 @@ document.addEventListener('keydown', e => {
 
     video.addEventListener('error', () => {
       if (key === 'photo') {
-        video.src = './images/reveal-05.mp4';
+        video.src = './images/mobile-reveal-05.m4v';
         video.play().catch(() => {});
       }
     }, { once: true });
