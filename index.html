@@ -6,8 +6,10 @@
 <title>YIRUI SU</title>
 <script>
 (function () {
-  const forceDesktop = new URLSearchParams(window.location.search).get('desktop') === '1';
-  if (forceDesktop) return;
+  const params = new URLSearchParams(window.location.search);
+  const forceDesktop = params.get('desktop') === '1';
+  const hasProjectDeepLink = !!params.get('project');
+  if (forceDesktop || hasProjectDeepLink) return;
 
   const isNarrowScreen = window.matchMedia('(max-width: 900px)').matches;
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
@@ -1926,6 +1928,49 @@ document.addEventListener('keydown', e => {
 
   apply();
   window.addEventListener('resize', apply);
+})();
+
+// ── Deep-link mobile detail page: index.html?project=nuo|wechat|vintage|photo|m8 ──
+(function handleProjectDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get('project');
+  if (!key) return;
+
+  const allowed = new Set(['nuo', 'wechat', 'vintage', 'photo', 'm8']);
+  if (!allowed.has(key)) return;
+
+  document.body.classList.add('mobile-detail');
+
+  const style = document.createElement('style');
+  style.textContent = `
+    body.mobile-detail { overflow: auto !important; }
+    body.mobile-detail #grid,
+    body.mobile-detail .corner-contact,
+    body.mobile-detail #outerGridLeft,
+    body.mobile-detail #outerGridRight { display: none !important; }
+    body.mobile-detail .detail-panel {
+      position: fixed !important;
+      inset: 0 !important;
+      display: block !important;
+      padding: 56px 14px 24px !important;
+      overflow: auto !important;
+      background: #fff !important;
+      z-index: 9999 !important;
+    }
+    body.mobile-detail .detail-content {
+      max-width: 100% !important;
+      margin: 0 auto !important;
+    }
+    body.mobile-detail .back-btn {
+      position: fixed !important;
+      top: 12px !important;
+      left: 12px !important;
+      z-index: 10000 !important;
+    }
+  `;
+  document.head.appendChild(style);
+
+  openDetail(key);
 })();
 
 </script>
