@@ -249,16 +249,16 @@ window.addEventListener('resize', initSlices);
 
 function setupLightweightReveal() {
   const mapping = {
-    bg0: './images/mobile-reveal-01.m4v',
-    bg2: './images/mobile-reveal-02.mp4',
-    bg4: './images/mobile-reveal-03.mp4',
-    bg6: './images/mobile-reveal-04.m4v',
-    bg8: './images/mobile-reveal-05.m4v'
+    c0: './images/mobile-reveal-01.m4v',
+    c2: './images/mobile-reveal-02.mp4',
+    c4: './images/mobile-reveal-03.mp4',
+    c6: './images/mobile-reveal-04.m4v',
+    c8: './images/mobile-reveal-05.m4v'
   };
 
   Object.entries(mapping).forEach(([id, src]) => {
-    const container = document.getElementById(id);
-    if (!container) return;
+    const cell = document.getElementById(id);
+    if (!cell) return;
 
     const video = document.createElement('video');
     video.className = 'reveal-video-lite';
@@ -273,16 +273,17 @@ function setupLightweightReveal() {
     video.style.height = '100%';
     video.style.objectFit = 'cover';
     video.style.pointerEvents = 'none';
+    video.style.zIndex = '1';
     video.style.opacity = '0';
     video.style.transition = 'opacity .25s ease';
 
     video.addEventListener('error', () => {
-      if (id === 'bg6') {
+      if (id === 'c6') {
         video.src = './images/mobile-reveal-05.m4v';
       }
     }, { once: true });
 
-    container.appendChild(video);
+    cell.appendChild(video);
   });
 }
 
@@ -294,8 +295,7 @@ function showCellRevealVideo(cell) {
     v.pause();
   });
 
-  const imgLayer = cell.querySelector('.cell-img');
-  const video = imgLayer ? imgLayer.querySelector('.reveal-video-lite') : null;
+  const video = cell.querySelector('.reveal-video-lite');
   if (!video) return;
 
   video.style.opacity = '1';
