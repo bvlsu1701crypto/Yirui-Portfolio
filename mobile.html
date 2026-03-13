@@ -247,6 +247,9 @@ function initSlices() {
 
 window.addEventListener('resize', initSlices);
 
+const mobileName = document.querySelector('.name-cn');
+if (mobileName) mobileName.style.fontWeight = '700';
+
 document.querySelectorAll('.cell.project').forEach(cell => {
   cell.addEventListener('mouseenter', () => {
     cell.classList.add('active');
