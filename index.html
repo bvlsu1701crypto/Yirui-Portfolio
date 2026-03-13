@@ -765,11 +765,22 @@ body::after {
     min-height: 0;
   }
 
-  .cell-project.p1 { grid-column: 1; grid-row: 1; }
-  .cell-project.p2 { grid-column: 3; grid-row: 1; }
-  .cell-project.p3 { grid-column: 2; grid-row: 2; }
-  .cell-project.p4 { grid-column: 1; grid-row: 4; }
-  .cell-project.p5 { grid-column: 3; grid-row: 4; }
+  .cell-project.p1 { grid-column: 1; grid-row: 1; --cell-x: 0%; --cell-y: 0%; --cover-x: 0%; --cover-y: 0%; }
+  .cell-project.p2 { grid-column: 3; grid-row: 1; --cell-x: 100%; --cell-y: 0%; --cover-x: 100%; --cover-y: 0%; }
+  .cell-project.p3 { grid-column: 2; grid-row: 2; --cell-x: 50%; --cell-y: 33.333%; --cover-x: 50%; --cover-y: 33.333%; }
+  .cell-project.p4 { grid-column: 1; grid-row: 4; --cell-x: 0%; --cell-y: 100%; --cover-x: 0%; --cover-y: 100%; }
+  .cell-project.p5 { grid-column: 3; grid-row: 4; --cell-x: 100%; --cell-y: 100%; --cover-x: 100%; --cover-y: 100%; }
+
+  .cell,
+  .cell-cover {
+    background-image: url('./images/mobile-cover.jpg') !important;
+    background-size: calc(300% + 0.8px) calc(400% + 0.8px) !important;
+    background-repeat: no-repeat !important;
+  }
+
+  .cell-cover img {
+    display: none !important;
+  }
 
   .cell-label {
     padding: 10px 8px 0 !important;
