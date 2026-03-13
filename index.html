@@ -1980,6 +1980,46 @@ document.addEventListener('keydown', e => {
 
   openDetail(key);
 
+  const heroMap = {
+    nuo: './images/reveal-01.mp4',
+    wechat: './images/reveal-02.mp4',
+    vintage: './images/reveal-03.mp4',
+    photo: './images/reveal-04.mp4',
+    m8: './images/reveal-05.mp4'
+  };
+
+  const detailContent = document.getElementById('detailContent');
+  if (detailContent) {
+    const hero = document.createElement('div');
+    hero.style.margin = '0 0 14px 0';
+    hero.style.borderRadius = '14px';
+    hero.style.overflow = 'hidden';
+    hero.style.background = '#000';
+
+    const video = document.createElement('video');
+    video.src = heroMap[key] || './images/reveal-01.mp4';
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.controls = false;
+    video.style.width = '100%';
+    video.style.aspectRatio = '16 / 9';
+    video.style.objectFit = 'cover';
+    video.style.display = 'block';
+
+    video.addEventListener('error', () => {
+      if (key === 'photo') {
+        video.src = './images/reveal-05.mp4';
+        video.play().catch(() => {});
+      }
+    }, { once: true });
+
+    hero.appendChild(video);
+    detailContent.prepend(hero);
+    video.play().catch(() => {});
+  }
+
   const backBtn = document.querySelector('.back-btn');
   if (backBtn) {
     backBtn.onclick = (e) => {
