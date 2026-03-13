@@ -763,6 +763,12 @@ body::after {
   .cell-project {
     margin: 0 !important;
     min-height: 0;
+    border: none !important;
+  }
+
+  .cell-project::before,
+  .cell-project.p5::after {
+    display: none !important;
   }
 
   .cell-project.p1 { grid-column: 1; grid-row: 2; --cell-x: 0%; --cell-y: 33.333%; --cover-x: 0%; --cover-y: 33.333%; }
@@ -812,6 +818,7 @@ body::after {
   .corner-contact .cn-name,
   .corner-contact .en-name {
     font-size: 14px !important;
+    line-height: 1.1 !important;
     margin-bottom: 2px !important;
   }
 
