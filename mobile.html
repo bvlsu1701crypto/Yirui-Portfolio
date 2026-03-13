@@ -220,15 +220,41 @@ function initSlices() {
   const { rendW, rendH, offX, offY } = computeCoverBottom(
     pageR.width, pageR.height, realImgW, realImgH
   );
+
+  const pageBgImage = getComputedStyle(document.querySelector('.page-bg')).backgroundImage;
+
   [0,2,4,6,8].forEach(i => {
     const cell = document.getElementById('c' + i);
     const bg   = document.getElementById('bg' + i);
     if (!bg || !cell) return;
+
+    let base = cell.querySelector('.base-img');
+    if (!base) {
+      base = document.createElement('div');
+      base.className = 'base-img';
+      base.style.position = 'absolute';
+      base.style.inset = '0';
+      base.style.zIndex = '1';
+      base.style.pointerEvents = 'none';
+      base.style.backgroundRepeat = 'no-repeat';
+      base.style.backgroundImage = pageBgImage;
+      cell.insertBefore(base, cell.firstChild);
+    }
+
     const r  = cell.getBoundingClientRect();
     const cx = r.left - pageR.left;
     const cy = r.top  - pageR.top;
-    bg.style.backgroundSize     = rendW + 'px ' + rendH + 'px';
-    bg.style.backgroundPosition = (offX - cx) + 'px ' + (offY - cy) + 'px';
+
+    const posX = (offX - cx) + 'px';
+    const posY = (offY - cy) + 'px';
+    const size = rendW + 'px ' + rendH + 'px';
+
+    bg.style.backgroundSize = size;
+    bg.style.backgroundPosition = posX + ' ' + posY;
+
+    base.style.backgroundImage = pageBgImage;
+    base.style.backgroundSize = size;
+    base.style.backgroundPosition = posX + ' ' + posY;
   });
 }
 
