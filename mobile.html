@@ -247,50 +247,6 @@ function initSlices() {
 
 window.addEventListener('resize', initSlices);
 
-function attachRevealVideos() {
-  const mapping = {
-    bg0: './images/reveal-01.mp4',
-    bg2: './images/reveal-02.mp4',
-    bg4: './images/reveal-03.mp4',
-    bg6: './images/reveal-04.mp4',
-    bg8: './images/reveal-05.mp4'
-  };
-
-  Object.entries(mapping).forEach(([id, src]) => {
-    const container = document.getElementById(id);
-    if (!container) return;
-
-    let video = container.querySelector('video.reveal-video');
-    if (!video) {
-      video = document.createElement('video');
-      video.className = 'reveal-video';
-      video.autoplay = true;
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true;
-      video.preload = 'metadata';
-      video.style.position = 'absolute';
-      video.style.inset = '0';
-      video.style.width = '100%';
-      video.style.height = '100%';
-      video.style.objectFit = 'cover';
-      video.style.pointerEvents = 'none';
-      container.appendChild(video);
-    }
-
-    video.src = src;
-    video.play().catch(() => {});
-
-    video.addEventListener('error', () => {
-      if (id === 'bg6') {
-        video.src = './images/reveal-05.mp4';
-        video.play().catch(() => {});
-      }
-    }, { once: true });
-  });
-}
-
-attachRevealVideos();
 
 document.querySelectorAll('.cell.project').forEach(cell => {
   cell.addEventListener('mouseenter', () => cell.classList.add('active'));
