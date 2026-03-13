@@ -775,8 +775,28 @@ body::after {
       linear-gradient(to bottom, transparent 25%, #0000ff 25%, #0000ff calc(25% + 1px), transparent calc(25% + 1px), transparent 50%, #0000ff 50%, #0000ff calc(50% + 1px), transparent calc(50% + 1px), transparent 75%, #0000ff 75%, #0000ff calc(75% + 1px), transparent calc(75% + 1px));
   }
 
-  .grid > .cell:not(.cell-project) {
-    display: none !important;
+  .grid > .cell {
+    background-image: url('./images/mobile-cover-v2.jpg') !important;
+    background-size: calc(300% + 0.8px) calc(400% + 0.8px) !important;
+    background-repeat: no-repeat !important;
+    background-position: var(--cell-x, 0%) var(--cell-y, 0%) !important;
+  }
+
+  .grid > .cell:nth-child(1)  { --cell-x: 0%;   --cell-y: 0%; }
+  .grid > .cell:nth-child(2)  { --cell-x: 50%;  --cell-y: 0%; }
+  .grid > .cell:nth-child(3)  { --cell-x: 100%; --cell-y: 0%; }
+  .grid > .cell:nth-child(4)  { --cell-x: 0%;   --cell-y: 33.333%; }
+  .grid > .cell:nth-child(5)  { --cell-x: 50%;  --cell-y: 33.333%; }
+  .grid > .cell:nth-child(6)  { --cell-x: 100%; --cell-y: 33.333%; }
+  .grid > .cell:nth-child(7)  { --cell-x: 0%;   --cell-y: 66.667%; }
+  .grid > .cell:nth-child(8)  { --cell-x: 50%;  --cell-y: 66.667%; }
+  .grid > .cell:nth-child(9)  { --cell-x: 100%; --cell-y: 66.667%; }
+  .grid > .cell:nth-child(10) { --cell-x: 0%;   --cell-y: 100%; }
+  .grid > .cell:nth-child(11) { --cell-x: 50%;  --cell-y: 100%; }
+  .grid > .cell:nth-child(12) { --cell-x: 100%; --cell-y: 100%; }
+
+  .grid > .cell {
+    display: block !important;
   }
 
   .cell-project {
