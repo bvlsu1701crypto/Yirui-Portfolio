@@ -734,9 +734,7 @@ body::after {
 @media (max-width: 768px) {
   html, body {
     overflow: hidden;
-    background-image: url('./images/mobile-cover-v2.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
+    background: #000;
   }
 
   #outerGridLeft,
@@ -751,17 +749,17 @@ body::after {
     width: 100vw !important;
     height: 100dvh !important;
     padding: 0 !important;
-    background: transparent !important;
     background-image: url('./images/mobile-cover-v2.jpg') !important;
     background-size: cover !important;
-    background-position: center !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
   }
 
   .grid {
     position: relative;
     grid-template-columns: repeat(3, 1fr) !important;
     grid-template-rows: repeat(4, 1fr) !important;
-    grid-auto-rows: 0 !important;
+    grid-auto-rows: calc(100% / 4) !important;
     overflow: hidden !important;
     gap: 1px !important;
     background: transparent !important;
@@ -778,6 +776,7 @@ body::after {
   }
 
   .grid > .cell {
+    display: block !important;
     background-image: url('./images/mobile-cover-v2.jpg') !important;
     background-size: calc(300% + 0.8px) calc(400% + 0.8px) !important;
     background-repeat: no-repeat !important;
@@ -796,14 +795,6 @@ body::after {
   .grid > .cell:nth-child(10) { --cell-x: 0%;   --cell-y: 100%; }
   .grid > .cell:nth-child(11) { --cell-x: 50%;  --cell-y: 100%; }
   .grid > .cell:nth-child(12) { --cell-x: 100%; --cell-y: 100%; }
-
-  .grid > .cell {
-    display: block !important;
-  }
-
-  .grid > .cell:nth-child(n+13):not(.cell-project) {
-    display: none !important;
-  }
 
   .cell-project {
     margin: 0 !important;
@@ -827,15 +818,9 @@ body::after {
   .cell-project.p4 { grid-column: 1; grid-row: 4; --cell-x: 0%; --cell-y: 100%; --cover-x: 0%; --cover-y: 100%; }
   .cell-project.p5 { grid-column: 3; grid-row: 4; --cell-x: 100%; --cell-y: 100%; --cover-x: 100%; --cover-y: 100%; }
 
-  .cell,
-  .cell-cover {
-    background: transparent !important;
-    background-image: none !important;
-  }
-
-  .cell-img,
   .cell-cover,
-  .cell-cover img {
+  .cell-cover img,
+  .cell-img {
     display: none !important;
   }
 
@@ -850,18 +835,15 @@ body::after {
     line-height: 1.15 !important;
   }
 
-  .label-type {
-    font-size: 8px !important;
-    letter-spacing: 0.1em !important;
-  }
+  .label-type { display: none !important; }
 
   .corner-contact {
     left: 0 !important;
     top: 0 !important;
     bottom: auto !important;
-    width: calc(100% / 3);
-    height: calc(100% / 4);
-    padding: 8px 8px 0 8px;
+    width: 100% !important;
+    height: calc(100% / 4) !important;
+    padding: 8px;
     z-index: 80;
     color: rgba(0, 0, 0, 0.82);
   }
@@ -870,11 +852,42 @@ body::after {
   .corner-contact .en-name {
     font-size: 14px !important;
     line-height: 1.1 !important;
-    margin-bottom: 2px !important;
+    margin: 0 !important;
+  }
+
+  .corner-contact .cn-name,
+  .corner-contact .en-name {
+    position: absolute;
+    left: calc(100% / 12);
+    top: 8px;
+  }
+
+  .corner-contact .en-name {
+    top: 28px;
   }
 
   .corner-contact .contact-line {
+    position: absolute;
+    font-size: 11px !important;
+    line-height: 1.25 !important;
+    white-space: nowrap;
+  }
+
+  .corner-contact .contact-line:nth-of-type(1) {
+    left: calc(100% / 3 + 8px);
+    top: 10px;
+    display: block !important;
+  }
+
+  .corner-contact .contact-line:nth-of-type(2),
+  .corner-contact .contact-line:nth-of-type(4) {
     display: none !important;
+  }
+
+  .corner-contact .contact-line:nth-of-type(3) {
+    left: calc(100% * 2 / 3 + 8px);
+    top: 10px;
+    display: block !important;
   }
 }
 
