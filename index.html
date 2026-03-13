@@ -1995,6 +1995,7 @@ document.addEventListener('keydown', e => {
     hero.style.borderRadius = '0';
     hero.style.overflow = 'hidden';
     hero.style.background = '#000';
+    hero.style.position = 'relative';
 
     const video = document.createElement('video');
     video.src = heroMap[key] || './images/reveal-01.mp4';
@@ -2005,7 +2006,7 @@ document.addEventListener('keydown', e => {
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', 'true');
     video.setAttribute('x5-playsinline', 'true');
-    video.controls = true;
+    video.controls = false;
     video.preload = 'metadata';
     video.style.width = '100%';
     video.style.height = 'auto';
@@ -2029,7 +2030,32 @@ document.addEventListener('keydown', e => {
       video.load();
     }, { once: true });
 
+    const playBtn = document.createElement('button');
+    playBtn.textContent = '▶︎ 播放视频';
+    playBtn.style.position = 'absolute';
+    playBtn.style.left = '50%';
+    playBtn.style.top = '50%';
+    playBtn.style.transform = 'translate(-50%, -50%)';
+    playBtn.style.zIndex = '2';
+    playBtn.style.border = '0';
+    playBtn.style.borderRadius = '999px';
+    playBtn.style.padding = '10px 16px';
+    playBtn.style.background = 'rgba(0,0,0,.65)';
+    playBtn.style.color = '#fff';
+    playBtn.style.fontSize = '14px';
+
+    const startVideo = () => {
+      video.play().then(() => {
+        playBtn.style.display = 'none';
+      }).catch(() => {});
+    };
+
+    playBtn.addEventListener('click', startVideo);
+    video.addEventListener('pause', () => { playBtn.style.display = ''; });
+    video.addEventListener('ended', () => { playBtn.style.display = ''; });
+
     hero.appendChild(video);
+    hero.appendChild(playBtn);
     detailContent.prepend(hero);
   }
 
