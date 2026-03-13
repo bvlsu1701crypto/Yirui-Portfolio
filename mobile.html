@@ -294,6 +294,9 @@ window.addEventListener('resize', initSlices);
 const mobileName = document.querySelector('.name-cn');
 if (mobileName) mobileName.style.fontWeight = '400';
 
+let lockedTapHref = null;
+let lockedTapCell = null;
+
 document.querySelectorAll('.cell.project').forEach(cell => {
   cell.addEventListener('mouseenter', () => {
     cell.classList.add('active');
@@ -304,14 +307,21 @@ document.querySelectorAll('.cell.project').forEach(cell => {
   });
 
   cell.addEventListener('touchstart', () => {
+    lockedTapHref = cell.getAttribute('href');
+    lockedTapCell = cell;
     cell.classList.add('active');
   }, {passive: true});
 
   cell.addEventListener('touchend', (e) => {
     e.preventDefault();
+    const targetHref = lockedTapHref || cell.getAttribute('href');
+    const targetCell = lockedTapCell || cell;
+
     setTimeout(() => {
-      cell.classList.remove('active');
-      window.location.href = cell.getAttribute('href');
+      targetCell.classList.remove('active');
+      lockedTapHref = null;
+      lockedTapCell = null;
+      window.location.href = targetHref;
     }, 1000);
   });
 });
