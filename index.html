@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YIRUI SU</title>
+<script>
+(function () {
+  const forceDesktop = new URLSearchParams(window.location.search).get('desktop') === '1';
+  if (forceDesktop) return;
+
+  const isNarrowScreen = window.matchMedia('(max-width: 900px)').matches;
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+  if (isNarrowScreen || isTouchDevice) {
+    window.location.replace('./mobile.html');
+  }
+})();
+</script>
 <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
