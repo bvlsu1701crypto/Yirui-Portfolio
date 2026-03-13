@@ -6,7 +6,7 @@
 <title>YIRUI SU</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400&family=Space+Mono:wght@400&family=Syne:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
 <script>
 (function () {
   const params = new URLSearchParams(window.location.search);
@@ -909,20 +909,41 @@ body::after {
   }
 }
 
-/* ── font system override ── */
-.cn-name, .name-cn, .detail-title-cn, .label-name-cn, .cell-cn {
+/* ── main page font override ── */
+.corner-contact .cn-name {
   font-family: 'Noto Sans SC', sans-serif !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
+  color: #000 !important;
 }
-.en-name, .name-en, .detail-title, .label-name, .cell-en, .detail-link {
-  font-family: 'Syne', sans-serif !important;
-  font-weight: 400 !important;
-}
-.contact-line, .detail-num, .label-num, .cell-num, .detail-meta-row {
+.corner-contact .en-name {
   font-family: 'Space Mono', monospace !important;
+  font-size: 18px !important;
   font-weight: 400 !important;
+  color: #000 !important;
 }
-.detail-num, .label-num, .cell-num {
+.corner-contact .contact-line {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  color: #000 !important;
+}
+.label-num,
+.label-name,
+.label-name-cn {
+  font-weight: 400 !important;
+  color: #0000ff !important;
+}
+.label-num {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 14px !important;
+}
+.label-name {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 14px !important;
+}
+.label-name-cn {
+  font-family: 'Noto Sans SC', sans-serif !important;
   font-size: 14px !important;
 }
 
