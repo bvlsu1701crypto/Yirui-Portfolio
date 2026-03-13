@@ -802,25 +802,12 @@ body::after {
 
   .cell,
   .cell-cover {
-    background-image: url('./images/mobile-cover-v2.jpg') !important;
-    background-size: calc(300% + 0.8px) calc(400% + 0.8px) !important;
-    background-repeat: no-repeat !important;
+    background: transparent !important;
+    background-image: none !important;
   }
 
-  .cell-img {
-    display: none !important;
-  }
-
-  .cell-cover {
-    transform: translateY(0) !important;
-    transition: none !important;
-    opacity: 1 !important;
-  }
-
-  .cell-project:hover .cell-cover {
-    transform: translateY(0) !important;
-  }
-
+  .cell-img,
+  .cell-cover,
   .cell-cover img {
     display: none !important;
   }
