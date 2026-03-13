@@ -1998,16 +1998,15 @@ document.addEventListener('keydown', e => {
 
     const video = document.createElement('video');
     video.src = heroMap[key] || './images/reveal-01.mp4';
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
+    video.autoplay = false;
+    video.muted = false;
+    video.loop = false;
     video.playsInline = true;
-    video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', 'true');
     video.setAttribute('x5-playsinline', 'true');
-    video.controls = false;
-    video.preload = 'auto';
+    video.controls = true;
+    video.preload = 'metadata';
     video.style.width = '100%';
     video.style.aspectRatio = '16 / 9';
     video.style.objectFit = 'cover';
@@ -2020,24 +2019,8 @@ document.addEventListener('keydown', e => {
       }
     }, { once: true });
 
-    video.addEventListener('timeupdate', () => {
-      if (video.currentTime >= 2) {
-        video.pause();
-      }
-    });
-
-    const tryPlay = () => video.play().catch(() => {});
-    video.addEventListener('loadeddata', () => {
-      video.currentTime = 0;
-      tryPlay();
-    }, { once: true });
-    window.addEventListener('pageshow', tryPlay);
-    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
-    document.addEventListener('click', tryPlay, { once: true });
-
     hero.appendChild(video);
     detailContent.prepend(hero);
-    tryPlay();
   }
 
   const backBtn = document.querySelector('.back-btn');
