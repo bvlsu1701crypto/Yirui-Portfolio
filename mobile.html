@@ -206,17 +206,18 @@ html, body {
 <script>
 let realImgW = 1, realImgH = 1;
 
-function computeContain(cW, cH, iW, iH) {
-  const scale = Math.min(cW / iW, cH / iH);
+function computeCoverBottom(cW, cH, iW, iH) {
+  const scale = Math.max(cW / iW, cH / iH);
   const rendW = iW * scale, rendH = iH * scale;
-  const offX  = (cW - rendW) / 2, offY = (cH - rendH) / 2;
+  const offX  = (cW - rendW) / 2;
+  const offY  = cH - rendH;
   return { rendW, rendH, offX, offY };
 }
 
 function initSlices() {
   const page  = document.getElementById('page');
   const pageR = page.getBoundingClientRect();
-  const { rendW, rendH, offX, offY } = computeContain(
+  const { rendW, rendH, offX, offY } = computeCoverBottom(
     pageR.width, pageR.height, realImgW, realImgH
   );
   [0,2,4,6,8].forEach(i => {
@@ -239,8 +240,8 @@ function initSlices() {
     requestAnimationFrame(() => requestAnimationFrame(initSlices));
   };
   const style = getComputedStyle(document.querySelector('.page-bg'));
-  const m = style.backgroundImage.match(/url\("(data:image[^"]+)"\)/);
-  if (m) tmp.src = m[1];
+  const m = style.backgroundImage.match(/url\((['"]?)(data:image[^'")]+)\1\)/);
+  if (m) tmp.src = m[2];
   else requestAnimationFrame(() => requestAnimationFrame(initSlices));
 })();
 
