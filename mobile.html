@@ -247,78 +247,17 @@ function initSlices() {
 
 window.addEventListener('resize', initSlices);
 
-function setupLightweightReveal() {
-  const mapping = {
-    c0: './images/mobile-reveal-01.m4v',
-    c2: './images/mobile-reveal-02.mp4',
-    c4: './images/mobile-reveal-03.mp4',
-    c6: './images/mobile-reveal-04.m4v',
-    c8: './images/mobile-reveal-05.m4v'
-  };
-
-  Object.entries(mapping).forEach(([id, src]) => {
-    const cell = document.getElementById(id);
-    if (!cell) return;
-
-    const video = document.createElement('video');
-    video.className = 'reveal-video-lite';
-    video.src = src;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'metadata';
-    video.style.position = 'absolute';
-    video.style.inset = '0';
-    video.style.width = '100%';
-    video.style.height = '100%';
-    video.style.objectFit = 'cover';
-    video.style.pointerEvents = 'none';
-    video.style.zIndex = '1';
-    video.style.opacity = '0';
-    video.style.transition = 'opacity .25s ease';
-
-    video.addEventListener('error', () => {
-      if (id === 'c6') {
-        video.src = './images/mobile-reveal-05.m4v';
-      }
-    }, { once: true });
-
-    cell.appendChild(video);
-  });
-}
-
-setupLightweightReveal();
-
-function showCellRevealVideo(cell) {
-  document.querySelectorAll('.reveal-video-lite').forEach(v => {
-    v.style.opacity = '0';
-    v.pause();
-  });
-
-  const video = cell.querySelector('.reveal-video-lite');
-  if (!video) return;
-
-  video.style.opacity = '1';
-  video.play().catch(() => {});
-}
-
 document.querySelectorAll('.cell.project').forEach(cell => {
   cell.addEventListener('mouseenter', () => {
     cell.classList.add('active');
-    showCellRevealVideo(cell);
   });
 
   cell.addEventListener('mouseleave', () => {
     cell.classList.remove('active');
-    document.querySelectorAll('.reveal-video-lite').forEach(v => {
-      v.style.opacity = '0';
-      v.pause();
-    });
   });
 
   cell.addEventListener('touchstart', () => {
     cell.classList.add('active');
-    showCellRevealVideo(cell);
   }, {passive: true});
 
   cell.addEventListener('touchend', (e) => {
