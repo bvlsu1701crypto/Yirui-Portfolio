@@ -1983,7 +1983,7 @@ document.addEventListener('keydown', e => {
   const heroMap = {
     nuo: './images/mobile-reveal-01.m4v',
     wechat: './images/mobile-reveal-03-.m4v',
-    vintage: './images/mobile-reveal-02-.mp4',
+    vintage: './images/reveal-02.mp4',
     photo: './images/mobile-reveal-04.m4v',
     m8: './images/mobile-reveal-05.m4v'
   };
@@ -2022,8 +2022,11 @@ document.addEventListener('keydown', e => {
     video.addEventListener('error', () => {
       if (key === 'photo') {
         video.src = './images/mobile-reveal-05.m4v';
-        video.play().catch(() => {});
       }
+      if (key === 'vintage') {
+        video.src = './images/mobile-reveal-02-.mp4';
+      }
+      video.load();
     }, { once: true });
 
     hero.appendChild(video);
