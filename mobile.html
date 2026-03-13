@@ -247,11 +247,80 @@ function initSlices() {
 
 window.addEventListener('resize', initSlices);
 
+function setupLightweightReveal() {
+  const mapping = {
+    bg0: './images/reveal-01.mp4',
+    bg2: './images/reveal-02.mp4',
+    bg4: './images/reveal-03.mp4',
+    bg6: './images/reveal-04.mp4',
+    bg8: './images/reveal-05.mp4'
+  };
+
+  Object.entries(mapping).forEach(([id, src]) => {
+    const container = document.getElementById(id);
+    if (!container) return;
+
+    const video = document.createElement('video');
+    video.className = 'reveal-video-lite';
+    video.src = src;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.style.position = 'absolute';
+    video.style.inset = '0';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.objectFit = 'cover';
+    video.style.pointerEvents = 'none';
+    video.style.opacity = '0';
+    video.style.transition = 'opacity .25s ease';
+
+    video.addEventListener('error', () => {
+      if (id === 'bg6') {
+        video.src = './images/reveal-05.mp4';
+      }
+    }, { once: true });
+
+    container.appendChild(video);
+  });
+}
+
+setupLightweightReveal();
+
+function showCellRevealVideo(cell) {
+  document.querySelectorAll('.reveal-video-lite').forEach(v => {
+    v.style.opacity = '0';
+    v.pause();
+  });
+
+  const imgLayer = cell.querySelector('.cell-img');
+  const video = imgLayer ? imgLayer.querySelector('.reveal-video-lite') : null;
+  if (!video) return;
+
+  video.style.opacity = '1';
+  video.play().catch(() => {});
+}
 
 document.querySelectorAll('.cell.project').forEach(cell => {
-  cell.addEventListener('mouseenter', () => cell.classList.add('active'));
-  cell.addEventListener('mouseleave', () => cell.classList.remove('active'));
-  cell.addEventListener('touchstart', () => cell.classList.add('active'), {passive: true});
+  cell.addEventListener('mouseenter', () => {
+    cell.classList.add('active');
+    showCellRevealVideo(cell);
+  });
+
+  cell.addEventListener('mouseleave', () => {
+    cell.classList.remove('active');
+    document.querySelectorAll('.reveal-video-lite').forEach(v => {
+      v.style.opacity = '0';
+      v.pause();
+    });
+  });
+
+  cell.addEventListener('touchstart', () => {
+    cell.classList.add('active');
+    showCellRevealVideo(cell);
+  }, {passive: true});
+
   cell.addEventListener('touchend', (e) => {
     e.preventDefault();
     setTimeout(() => {
