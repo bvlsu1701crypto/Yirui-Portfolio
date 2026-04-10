@@ -1713,7 +1713,327 @@ const detailHTML = {
   </div>
 </div>
 `,
-  photo:   placeholderHTML('photo'),
+  photo: `
+<div class="detail-header">
+  <div class="detail-num">04</div>
+  <div class="detail-title">Wang Dada</div>
+  <div class="detail-title-cn">王大大 · 生活化减脂助手 · Lifestyle &amp; Dietary Assistant</div>
+  <span class="detail-type">微信小程序 · AI 对话产品 / WeChat Mini Program · AI Conversation Product</span>
+  <div class="detail-meta-row">
+    <span>个人独立开发 · 持续迭代 / Solo · Ongoing</span><span class="dot">·</span><span>02/2026 – 03/2026</span>
+    <span class="dot">·</span>
+    <span>Qwen · DashScope · WeChat Mini Program · 微信云开发</span>
+  </div>
+</div>
+
+<!-- BACKGROUND -->
+<div class="detail-section">
+  <div class="detail-section-label">背景 Background</div>
+  <h3 class="section-heading">用聊天代替表格，让科学减脂变得像发微信一样简单</h3>
+  <p class="detail-body cn-sub">Replace spreadsheets with chat — making science-backed fat loss as easy as sending a WeChat message.</p>
+  <p class="detail-body">减脂是一件知易行难的事。市面上科学知识不缺，缺的是持续执行的动力和工具。</p>
+  <p class="detail-body cn-sub">Fat loss is easy to understand but hard to sustain. There's no shortage of scientific knowledge — what's missing is the motivation and tools to keep going every day.</p>
+  <p class="detail-body" style="margin-top:16px;">我自己是减脂的实践者。减脂过程中我尝试了薄荷健康、Keep、手动记录热量表格——每一个都在三天后放弃了。不是因为懒，是因为记录这件事太割裂：</p>
+  <p class="detail-body cn-sub">I've been on my own fat-loss journey. I tried Mint Health, Keep, and manual calorie spreadsheets — and abandoned every one within three days. Not because I was lazy, but because logging felt so disconnected from real life:</p>
+  <div class="criteria-list" style="margin-top:16px;">
+    <div class="criteria-item">
+      <div class="criteria-title">五步才能记一顿饭 / Five steps just to log one meal</div>
+      <div class="criteria-desc">打开 App → 搜索食物 → 填重量 → 等结果 → 返回主页<br><span class="cn-sub" style="display:block;margin-top:4px;">Open app → search food → enter weight → wait for result → return to home</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">本地化食物覆盖差 / Poor local food coverage</div>
+      <div class="criteria-desc">数据库缺少中式早餐、家常菜、外卖组合等本地食物<br><span class="cn-sub" style="display:block;margin-top:4px;">Databases lack Chinese breakfasts, home-cooked dishes, and takeout combos</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">没有反馈感 / No sense of feedback</div>
+      <div class="criteria-desc">数字表格没有反馈感，记了等于没记<br><span class="cn-sub" style="display:block;margin-top:4px;">Numeric tables feel like logging into a void — you record, but nothing responds</span></div>
+    </div>
+  </div>
+  <div class="quote-block" style="border-left-color:#c678a0; margin-top:24px;">
+    <div class="quote-label">核心洞察 Key Insight</div>
+    <p class="quote-text">减脂追踪的门槛不在"懂不懂"，在"做不做得到每天坚持"。用户需要的不是一个工具，是一个愿意每天接收碎碎念的搭档。</p>
+    <p class="quote-text-cn">The barrier to fat-loss tracking isn't knowledge — it's daily consistency. What users need isn't a tool, it's a companion willing to receive their random thoughts every single day.</p>
+  </div>
+  <p class="detail-body" style="margin-top:20px;">王大大因此诞生——用自然语言对话替代表格填报，让记录这件事消失在聊天里。</p>
+  <p class="detail-body cn-sub">That's why Wang Dada was born — replacing form-filling with natural conversation, so logging disappears into the flow of chatting.</p>
+</div>
+
+<!-- PROBLEM DISCOVERY -->
+<div class="detail-section">
+  <div class="detail-section-label">问题发现 Problem Discovery</div>
+  <h3 class="section-heading">用户核心痛点 / Core User Pain Points</h3>
+  <p class="detail-body">通过对身边 6 位减脂用户（含自己）的访谈，归纳出三类高频痛苦：</p>
+  <p class="detail-body cn-sub">Through interviews with 6 fat-loss users (including myself), three recurring pain points emerged:</p>
+  <table style="width:100%;border-collapse:collapse;margin-top:20px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:28%;">痛点 Pain Point</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">描述 Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">记录摩擦<br><span style="font-weight:400;color:rgba(20,18,14,0.45);font-size:11px;">Logging friction</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">搜索食物数据库繁琐，本地化食物找不到；必须称重才能录入<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Cumbersome food database search; local foods missing; weighing required before logging</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">缺乏反馈<br><span style="font-weight:400;color:rgba(20,18,14,0.45);font-size:11px;">No feedback loop</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">记录完不知道超没超，缺少当日"剩余热量"直觉提示<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">After logging, users don't know if they're over budget; no intuitive "remaining calories" indicator</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">方案不个性化<br><span style="font-weight:400;color:rgba(20,18,14,0.45);font-size:11px;">Generic plans</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">固定 1200 kcal 方案不考虑身高体重活动量，容易掉基础代谢<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Fixed 1200 kcal plans ignore height, weight, and activity level — risking metabolic damage</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-heading" style="margin-top:36px;">竞品缺陷分析 / Competitor Gap Analysis</h3>
+  <div class="criteria-list">
+    <div class="criteria-item">
+      <div class="criteria-title">薄荷 / Keep 热量记录 / Mint &amp; Keep Calorie Tracking</div>
+      <div class="criteria-desc">搜索式录入，本地食物覆盖差，无 AI 识别<br><span class="cn-sub" style="display:block;margin-top:4px;">Search-based entry, poor local food coverage, no AI recognition</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">ChatGPT 直接对话 / Direct ChatGPT Conversation</div>
+      <div class="criteria-desc">可以估算热量，但没有历史记录，无法累积追踪<br><span class="cn-sub" style="display:block;margin-top:4px;">Can estimate calories but has no history — unable to track cumulative data</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">身边健身教练 / Personal Trainer</div>
+      <div class="criteria-desc">个性化强，但贵且不能随时问<br><span class="cn-sub" style="display:block;margin-top:4px;">Highly personalized but expensive and not available on demand</span></div>
+    </div>
+  </div>
+  <div class="quote-block" style="border-left-color:#c678a0; margin-top:24px;">
+    <div class="quote-label">机会点 Opportunity</div>
+    <p class="quote-text">对话式录入 + 持久化数据 + 个性化方案三者合一，在微信生态内实现零摩擦。</p>
+    <p class="quote-text-cn">Conversational logging + persistent data + personalized plans — unified into a zero-friction experience inside the WeChat ecosystem.</p>
+  </div>
+</div>
+
+<!-- SOLUTION -->
+<div class="detail-section">
+  <div class="detail-section-label">解决方案 Solution</div>
+  <h3 class="section-heading">四个核心设计决策 / Four Core Design Decisions</h3>
+
+  <div class="criteria-list">
+    <div class="criteria-item">
+      <div class="criteria-title">决策 1 · 对话即录入 / Decision 1 · Conversation as Entry</div>
+      <div class="criteria-desc">用户不需要打开任何专门的录入界面。直接和王大大说"刚吃了一个蛋炒饭加一杯豆浆"，王大大自动提取食物、估算热量、写入当日记录。内置覆盖 200+ 条目的本地食物热量数据库（_FDB），优先精确匹配，其次 AI 估算。<br><span class="cn-sub" style="display:block;margin-top:6px;">No dedicated logging UI needed. Just tell Wang Dada "I just had fried rice and soy milk" — it extracts foods, estimates calories, and writes to today's record. A built-in local food database (_FDB) with 200+ entries prioritizes exact matches before falling back to AI estimation.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 2 · 个性化基础代谢 / Decision 2 · Personalized Metabolism</div>
+      <div class="criteria-desc">用 Mifflin-St Jeor 公式基于用户身高、体重、年龄计算 BMR，再乘活动系数得到 TDEE，最后根据目标减重速度反推每日热量目标。关键边界：BMI &lt; 18.5 仅创造 200 kcal 保守热量差；安全下限女 700 kcal / 男 1000 kcal；肌肉量 ≥ 体重时判定数据无效并使用估算替代。<br><span class="cn-sub" style="display:block;margin-top:6px;">Uses the Mifflin-St Jeor formula to calculate BMR from height, weight, and age; multiplied by activity factor to get TDEE; then back-calculates daily calorie target from weight-loss goal. Key guardrails: BMI &lt; 18.5 → only 200 kcal conservative deficit; safety floors at 700 kcal (F) / 1000 kcal (M); muscle mass ≥ body weight flagged as invalid data.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 3 · 体重趋势可视化 / Decision 3 · Weight Trend Visualization</div>
+      <div class="criteria-desc">每次用户提到体重数值，自动解析并写入历史。主界面展示最近 3 条折线图，"查看历史记录"打开完整历史面板，支持手动补录历史数据。<br><span class="cn-sub" style="display:block;margin-top:6px;">Every time a user mentions a weight figure, it's automatically parsed and saved. The main screen shows a sparkline of the last 3 entries; "View History" opens the full panel with support for manually backdating entries.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 4 · 图片识别辅助 / Decision 4 · Image Recognition Assist</div>
+      <div class="criteria-desc">用户可以拍菜单、拍体测报告发给王大大。对接 Qwen-VL 视觉模型进行内容提取，识别后写入对应数据（餐食 / 体测指标）。<br><span class="cn-sub" style="display:block;margin-top:6px;">Users can photograph a menu or body composition report and send it to Wang Dada. The Qwen-VL vision model extracts the relevant data and writes it to the appropriate record (meal / body metrics).</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTION -->
+<div class="detail-section">
+  <div class="detail-section-label">执行过程 Execution</div>
+  <h3 class="section-heading">技术选型 / Tech Stack</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:20px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:20%;">模块 Module</th>
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:32%;">技术选择 Choice</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">原因 Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">前端 Frontend</td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">微信小程序原生 / WeChat Mini Program</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">用户获取成本最低，无需下载 / Lowest acquisition friction, no install required</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">AI 对话 AI Chat</td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">通义千问 Qwen (DashScope API)</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">中文理解能力强，有免费额度供内测 / Strong Chinese comprehension, free quota for beta</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">图片识别 Vision</td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">Qwen-VL 多模态模型</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">同一 API 兼容文字 + 图像，减少集成复杂度 / Single API for text + image, reduces integration complexity</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">数据存储 Storage</td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">微信云数据库 + 本地 Storage</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">对话历史云端同步；热量/体重记录本地优先（低延迟）/ Chat history synced to cloud; calorie/weight data local-first for low latency</td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">云函数 Cloud Fn</td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">微信云开发 Node.js</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">API Key 安全存储于服务端，不暴露给客户端 / API keys stored server-side, never exposed to client</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-heading" style="margin-top:36px;">Prompt 迭代过程 / Prompt Iteration Process</h3>
+  <p class="detail-body">Prompt 是这个产品最核心的"代码"，经历了 5 轮主要迭代：</p>
+  <p class="detail-body cn-sub">The prompt is the most critical "code" in this product — it went through 5 major iterations:</p>
+  <div class="timeline-list" style="margin-top:16px;">
+    <div class="timeline-item"><span class="tl-day">迭代 1</span><span class="tl-desc">基础能力建立 — 最初只要求 AI 估算热量并返回。问题：AI 自由发挥，格式不稳定，无法解析。<br><span class="cn-sub" style="display:block;margin-top:2px;font-size:11px;">Foundation — Initial prompt only asked AI to estimate calories. Problem: AI improvised freely, output format was unstable and unparseable.</span></span></div>
+    <div class="timeline-item"><span class="tl-day">迭代 2</span><span class="tl-desc">结构化输出 — 引入 MEAL_LOG、WEIGHT 等标签，要求 AI 在回复末尾以固定格式输出机器可读数据。解决了格式问题，但出现单位混乱（斤/kg 混用）。<br><span class="cn-sub" style="display:block;margin-top:2px;font-size:11px;">Structured output — Introduced MEAL_LOG, WEIGHT tags, requiring machine-readable data at the end of each reply. Fixed format issues but unit confusion emerged (jin/kg mixed).</span></span></div>
+    <div class="timeline-item"><span class="tl-day">迭代 3</span><span class="tl-desc">单位与边界规则 — 加入明确换算规则：所有体重一律以 kg 输出；若提取值 &gt; 200，自动识别为斤并折半。同步修复 WEIGHT 标签正则：从 \nWEIGHT 改为 ^WEIGHT（multiline 模式）。<br><span class="cn-sub" style="display:block;margin-top:2px;font-size:11px;">Units &amp; bounds — Added explicit conversion rules: all weights output in kg; if extracted value &gt; 200, auto-treat as jin and halve. Fixed WEIGHT regex from \nWEIGHT to ^WEIGHT (multiline mode).</span></span></div>
+    <div class="timeline-item"><span class="tl-day">迭代 4</span><span class="tl-desc">图像识别约束 — 加入体测报告识别的负向约束：明确排除体脂仪的"参考范围条"不得识别为肌肉量；肌肉量必须有 kg 单位标注才提取。<br><span class="cn-sub" style="display:block;margin-top:2px;font-size:11px;">Vision constraints — Added negative constraints for body composition reports: reference range bars must not be read as muscle mass; muscle mass only extracted when kg unit is explicitly labeled.</span></span></div>
+    <div class="timeline-item"><span class="tl-day">迭代 5</span><span class="tl-desc">用户画像注入 — 将用户完整 Profile（BMR/TDEE/目标热量/BMI/体型分类）注入每轮系统 Prompt，使 AI 在每次对话中都能给出符合用户具体情况的建议。<br><span class="cn-sub" style="display:block;margin-top:2px;font-size:11px;">Profile injection — Injected the user's full profile (BMR/TDEE/target calories/BMI/body type) into every system prompt, enabling context-aware advice in every conversation turn.</span></span></div>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:36px;">关键 Bug 修复记录 / Key Bug Fixes</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:20px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:28%;">Bug</th>
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:36%;">根因 Root Cause</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">修复 Fix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">历史餐食补录日期错误<br><span style="font-weight:400;color:rgba(20,18,14,0.4);font-size:11px;">Backdated meal logged to wrong date</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.65);">lastUserMsg 变量未声明，始终 undefined，回退为当天<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">lastUserMsg undeclared, always undefined, defaulted to today</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">改用函数参数 text<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Switched to function parameter text</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">体重记录停在某天不更新<br><span style="font-weight:400;color:rgba(20,18,14,0.4);font-size:11px;">Weight record frozen on one date</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.65);">\nWEIGHT 正则要求字面换行，AI 把 WEIGHT 放首行时失效<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">\nWEIGHT regex required literal newline; failed when AI placed WEIGHT on first line</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">改 ^WEIGHT + multiline flag</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">热量目标几乎等于 TDEE（无赤字）<br><span style="font-weight:400;color:rgba(20,18,14,0.4);font-size:11px;">Calorie target ≈ TDEE, no deficit created</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.65);">旧体测数据肌肉量 64 kg &gt; 当前体重 41.5 kg，被判定为运动员体型，叠加安全下限无法创造赤字<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Stale body data: muscle mass 64 kg &gt; current weight 41.5 kg, classified as athlete type; safety floor prevented deficit</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">增加 muscleMass ≥ weight 异常校验；体型倍率上限 = TDEE − 100<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Added muscleMass ≥ weight validation; capped body-type multiplier at TDEE − 100</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">"改数量"弹出热量输入框<br><span style="font-weight:400;color:rgba(20,18,14,0.4);font-size:11px;">"Edit qty" showed calorie input instead</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.65);">按钮调用了错误的函数<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Button called wrong function</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">新建 showEditQtyInput，输入数量自动换算总热量<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Created showEditQtyInput; quantity input auto-calculates total calories</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- VALIDATION -->
+<div class="detail-section">
+  <div class="detail-section-label">数据验证 Validation</div>
+  <h3 class="section-heading">功能测试覆盖 / Feature Test Coverage</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:20px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:40%;">场景 Scenario</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">测试结论 Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">中式早餐录入（粥/包子/豆浆）<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Chinese breakfast entry (congee/bao/soy milk)</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">热量估算与参考值偏差 &lt; 15%<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Calorie estimate within 15% of reference values</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">外卖组合录入（黄焖鸡米饭+饮料）<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Takeout combo entry (braised chicken rice + drink)</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">正确拆分多食物，分项记录<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Correctly splits multi-item meals and logs each separately</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">斤/kg 混合输入<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Mixed jin/kg input</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">超过 200 自动折半，无误识别<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Values &gt; 200 auto-halved; no misidentification</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">体测报告图片识别<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Body composition report image recognition</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">正确提取体重、BMI；体脂范围值不再被识别为肌肉量<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Correctly extracts weight and BMI; reference range bars no longer misread as muscle mass</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">历史体重补录<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Historical weight backdating</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">年/月/日分格输入，正确存储并显示在曲线上<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Year/month/day field input stores correctly and renders on the trend chart</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">BMI &lt; 18.5 用户初始化<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Underweight user onboarding</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">目标热量 = TDEE − 200，展示健康提示而非标准减脂方案<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Target = TDEE − 200; health advisory shown instead of standard fat-loss plan</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">跨日餐食补充（"昨天吃了"）<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Cross-day meal supplement ("I ate this yesterday")</span></td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">日期正确写入昨天，不覆盖今日记录<br><span style="color:rgba(20,18,14,0.4);font-size:11px;">Date correctly written to yesterday; today's record unaffected</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-heading" style="margin-top:36px;">内测反馈（3 名用户，使用 2 周）/ Beta Feedback (3 users, 2 weeks)</h3>
+  <div class="three-col" style="margin-top:16px;">
+    <div class="stat-block">
+      <div class="stat-num">2.8×</div>
+      <div class="stat-label">日均录入次数 / Daily log frequency<br><span style="font-size:10px;opacity:0.5;">vs 薄荷自述 1.1 次后放弃 / vs Mint's self-reported 1.1 before dropout</span></div>
+    </div>
+  </div>
+  <div class="quote-block" style="border-left-color:#c678a0; margin-top:20px;">
+    <p class="quote-text">"感觉跟朋友聊天，不像在完成任务。"</p>
+    <p class="quote-text-cn">"It feels like chatting with a friend, not completing a task."</p>
+    <p class="quote-text" style="margin-top:12px;">第一周热量意识显著提升，开始主动选择低热量替代品。</p>
+    <p class="quote-text-cn">Calorie awareness increased significantly in week one; started actively choosing lower-calorie alternatives.</p>
+    <p class="quote-text" style="margin-top:12px;">用户 C 提出：零食热量数据库覆盖不足 → 已补充 40+ 条常见零食条目。</p>
+    <p class="quote-text-cn">User C flagged: snack calorie database lacking → 40+ common snack entries added.</p>
+  </div>
+</div>
+
+<!-- REFLECTION -->
+<div class="detail-section">
+  <div class="detail-section-label">反思 Reflection</div>
+  <h3 class="section-heading">如果再来一次，我会改变三件事</h3>
+  <p class="detail-body cn-sub">If I did this again, I'd change three things.</p>
+
+  <div style="margin-top:24px;">
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(198,120,160,0.25);line-height:1;flex-shrink:0;">1/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">更早定义数据格式，而不是边做边约定</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:10px;">Define the data schema upfront, not mid-build.</div>
+        <p class="detail-body">MEAL_LOG 标签的字段结构在开发中途改了两次，导致历史数据解析出现兼容问题。应在 Prompt 设计阶段就锁定字段名和类型。</p>
+        <p class="detail-body cn-sub">The MEAL_LOG tag's field structure changed twice mid-development, causing compatibility issues with historical data parsing. Field names and types should be locked in during the Prompt design phase.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(198,120,160,0.25);line-height:1;flex-shrink:0;">2/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">对 AI 的输出保持更多怀疑</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:10px;">Maintain more skepticism toward AI output.</div>
+        <p class="detail-body">我曾经假设"只要 Prompt 写清楚，AI 就会按格式输出"。实际上 AI 在边界情况下仍然会发明自己的格式、混淆单位、误读图像。每个关键数据路径都需要后端做防御性校验，而不是相信 AI 一定正确。</p>
+        <p class="detail-body cn-sub">I assumed "if the prompt is clear enough, AI will follow the format." In reality, AI still invents its own formats, confuses units, and misreads images at edge cases. Every critical data path needs defensive backend validation — never trust AI to always be correct.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(198,120,160,0.25);line-height:1;flex-shrink:0;">3/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">用户研究应该更早介入体重单位问题</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:10px;">User research should surface the unit ambiguity problem earlier.</div>
+        <p class="detail-body">斤/kg 混用是一个我作为产品设计者从未认真想过的问题，却是第一个内测用户遇到的 bug。如果在设计阶段做一次"输入场景枚举"，这个 bug 可以在上线前就被发现。</p>
+        <p class="detail-body cn-sub">The jin/kg ambiguity was something I as a product designer never seriously considered — yet it was the first bug a beta user hit. A simple "input scenario enumeration" exercise during design would have caught it before launch.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:8px;">产品还未解决的问题 / Open Problems</h3>
+  <div class="criteria-list">
+    <div class="criteria-item">
+      <div class="criteria-title">热量精度天花板 / Calorie accuracy ceiling</div>
+      <div class="criteria-desc">热量数据依赖 AI 估算，精度由模型知识决定，用户无法核实具体来源<br><span class="cn-sub" style="display:block;margin-top:4px;">Calorie data relies on AI estimation; accuracy is bounded by model knowledge and users can't verify sources</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">缺少社交 / 打卡机制 / No social or check-in layer</div>
+      <div class="criteria-desc">长期坚持依赖用户自驱力，没有外部激励<br><span class="cn-sub" style="display:block;margin-top:4px;">Long-term consistency depends entirely on intrinsic motivation with no external reinforcement</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">多设备同步 / Cross-device sync</div>
+      <div class="criteria-desc">当前体重/热量数据存在本地 Storage，换设备会丢失<br><span class="cn-sub" style="display:block;margin-top:4px;">Weight and calorie data lives in local Storage — switching devices means data loss</span></div>
+    </div>
+  </div>
+
+</div>
+`,
   m8:      m8HTML,
 };
 
