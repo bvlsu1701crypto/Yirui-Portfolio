@@ -1077,7 +1077,7 @@ body::after {
 const projectMeta = {
   nuo:     { num:'01', title:'Nuó', titleCn:'傩', type:'AI · Craft · Identity', color:'#e05a3a' },
   wechat:  { num:'03', title:'WeChat Reading AI', titleCn:'微信读书 AI 功能', type:'Product Analysis', color:'#4a90d9' },
-  vintage: { num:'02', title:'Vintage Search', titleCn:'中古智能搜索 Demo', type:'AI Product', color:'#6ab04c' },
+  vintage: { num:'02', title:'古着包跨平台搜索工具', titleCn:'Vintage Cross-Platform Search', type:'AI Product', color:'#6ab04c' },
   photo:   { num:'04', title:'Wangdada-Lifestyle and Dietary Assistant', titleCn:'王大大生活化饮食助手', type:'WeChat Mini Program', color:'#c678a0' },
   m8:      { num:'05', title:'M8 Macau', titleCn:'澳门天台装置', type:'Spatial · Installation', color:'#e0a03a' },
 };
@@ -1351,367 +1351,497 @@ const detailHTML = {
   wechat: `
 <div class="detail-header">
   <div class="detail-num">03</div>
-  <div class="detail-title">WeChat Reading AI</div>
-  <div class="detail-title-cn">微信读书 — Style-Adaptive Reading Assistant</div>
-  <span class="detail-type">Product Analysis · Prototype / 产品分析 · 原型</span>
+  <div class="detail-title">风格自适应阅读助手</div>
+  <div class="detail-title-cn">Style-Adaptive Reading Companion</div>
+  <div style="font-size:13px;color:rgba(20,18,14,0.45);margin-top:8px;font-style:italic;">让每一次重启阅读，都像从未离开 / Every restart feels like you never left.</div>
+  <span class="detail-type">微信读书功能模块 · 产品提案</span>
   <div class="detail-meta-row">
-    <span>Product Designer &amp; Builder / 产品设计师兼开发者</span><span class="dot">·</span><span>2024</span>
-    <span class="dot">·</span>
-    <span>Next.js · Claude API · Tencent PM Creation Camp Final Project / 腾讯产品经理创作营决赛项目</span>
+    <span>腾讯产品经理创造营</span><span class="dot">·</span><span>02/2026</span>
   </div>
   <div style="margin-top:20px;">
     <a href="https://style-adaptive-reading-assistant-de.vercel.app/" target="_blank" class="detail-link" style="background:#4a90d9; border-color:#4a90d9;">🎮 Try Live Demo →</a>
   </div>
 </div>
 
-<!-- OVERVIEW -->
+<!-- SECTION 1 背景 -->
 <div class="detail-section">
-  <div class="detail-section-label">Overview / 概览</div>
-  <div class="img-placeholder-block tall">img/wechat-overview.jpg</div>
-</div>
-
-<!-- PROBLEM -->
-<div class="detail-section">
-  <div class="detail-section-label">Problem Discovery / 问题发现</div>
-  <h3 class="section-heading">The Daily Frustration / 日常困境</h3>
-  <p class="detail-body">
-    WeChat Read has 300M+ registered users, 6.59 daily app launches, and 30+ minute reading sessions. This creates a hidden problem: multiple "reading restarts" every day.
-  </p>
-  <p class="detail-body cn-sub">微信读书拥有3亿以上注册用户，日均启动6.59次，单次阅读时长超30分钟。这带来了一个隐性问题：每天多次"重新进入阅读状态"。</p>
-  <div class="three-col" style="margin-top:20px;">
+  <div class="detail-section-label">背景 Background</div>
+  <h3 class="section-heading">每次重启阅读，都是一次心流中断<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Every Reading Restart Is a Flow State Interruption</span></h3>
+  <p class="detail-body">我是微信读书的重度用户。读严肃书籍时，最痛苦的不是内容难懂，而是每次重新打开书，都要花好几分钟回忆「上次读到哪了、当时在想什么」。我试过书签、手动笔记、截图——都没有真正解决这个问题。</p>
+  <p class="detail-body cn-sub">I'm a heavy WeChat Reading user. When reading serious books, the most painful part isn't the difficulty of the content — it's spending several minutes every time I reopen a book trying to recall where I left off and what I was thinking. I've tried bookmarks, manual notes, screenshots — none of them truly solved the problem.</p>
+  <div class="three-col" style="margin-top:24px;">
     <div class="stat-block">
-      <div class="stat-num">300M+</div>
-      <div class="stat-label">Registered users / 注册用户</div>
+      <div class="stat-num">3亿+</div>
+      <div class="stat-label">注册用户 / Registered users</div>
     </div>
     <div class="stat-block">
       <div class="stat-num">6.59×</div>
-      <div class="stat-label">Daily app launches / 日均启动次数</div>
+      <div class="stat-label">日均启动 / Daily launches</div>
     </div>
     <div class="stat-block">
-      <div class="stat-num">30+ min</div>
-      <div class="stat-label">Average session / 平均单次时长</div>
+      <div class="stat-num">30min+</div>
+      <div class="stat-label">日均阅读 / Avg daily reading</div>
     </div>
   </div>
-  <p class="detail-body" style="margin-top:24px;">Each restart requires: recalling where you left off, re-entering the mental state, and rebuilding emotional connection. Traditional bookmarks save page numbers — not reading flow.</p>
-  <p class="detail-body cn-sub">每次重启都需要：回忆读到了哪里、重新进入心理状态、重建情感联结。传统书签只保存页码——而非阅读的心流。</p>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-problem.jpg</div>
+  <p class="detail-body" style="margin-top:20px;">核心用户是 24–35 岁高学历群体，月活 3,000 万+，读的是文学、心理学、社科这类需要高度连续性的出版书籍。每天产生多次阅读重启，但每次重启都是一次心流中断。</p>
+  <p class="detail-body cn-sub">The core user base is highly educated adults aged 24–35, with 30M+ monthly active users reading literature, psychology, and social science — genres that demand high continuity. Users experience multiple reading restarts every day, and each restart is a flow state interruption.</p>
+</div>
 
-  <p class="detail-body" style="margin-top:24px; font-style:italic; opacity:0.6;">Talked to 10 readers and identified two core pain points: / 访谈10位读者，发现两个核心痛点：</p>
-  <div class="quote-block" style="border-left-color:#4a90d9; margin-top:12px;">
-    <p class="quote-text">"Social science books are mentally draining. Just when I half-understood a theory, my advisor called me. Two hours later, I can't recall the reasoning — total waste of time."</p>
-    <p class="quote-text-cn">「社科类书籍真的很耗脑力。好不容易半懂了一个理论，导师突然来电话。两个小时后，我完全想不起那段推理——时间全浪费了。」</p>
+<!-- SECTION 2 问题发现 -->
+<div class="detail-section">
+  <div class="detail-section-label">问题发现 Problem Discovery</div>
+  <h3 class="section-heading">两类核心痛苦，三个竞品盲点<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Two Core Pain Points, Three Competitor Blind Spots</span></h3>
+  <p class="detail-body">通过对 3 类用户画像的访谈，归纳出两类核心痛苦：</p>
+  <p class="detail-body cn-sub">Through interviews with 3 user personas, two core pain points emerged:</p>
+  <div class="criteria-list" style="margin-top:16px;">
+    <div class="criteria-item">
+      <div class="criteria-title">功利性阅读痛点 · 逻辑链断裂<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Functional Reading · Logic Chain Collapse</span></div>
+      <div class="criteria-desc">社科书推导过程复杂，被打断两小时后再看，完全想不起前面的推导，还得往前翻页重读，太浪费时间。<span class="cn-sub" style="display:block;margin-top:4px;">Social science books involve complex chains of reasoning. After a two-hour interruption, readers can't recall the earlier logic and have to scroll back to re-read — a major waste of time.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">沉浸式阅读痛点 · 心流中断<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Immersive Reading · Flow State Lost</span></div>
+      <div class="criteria-desc">小说类书籍依赖情绪代入，被打断后看着冷冰冰的文字，很难立刻回到那个世界，最后往往放弃阅读改刷短视频。<span class="cn-sub" style="display:block;margin-top:4px;">Narrative fiction depends on emotional immersion. After an interruption, the cold text on screen makes it nearly impossible to re-enter the story's world — users often give up and scroll social media instead.</span></div>
+    </div>
   </div>
-  <div class="quote-block" style="border-left-color:#4a90d9; margin-top:12px;">
-    <p class="quote-text">"After interruptions, it's hard to re-enter that vast universe of The Three-Body Problem. I often drift off and scroll my phone instead."</p>
-    <p class="quote-text-cn">「被打断之后，很难再重新进入《三体》那个宏大的宇宙。我经常就这么发着呆，顺手刷起手机来了。」</p>
+
+  <h3 class="section-heading" style="margin-top:32px;">竞品缺陷分析 / Competitor Gap Analysis</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:30%;">产品 Product</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">缺陷 Gap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">Kindle Recap</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">只有英文标准风格，无风格适配<span class="cn-sub" style="display:block;margin-top:3px;">English only, no style adaptation</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">微信读书 AI 问书</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">停留在通用问答层，不是阅读续接场景<span class="cn-sub" style="display:block;margin-top:3px;">Generic Q&amp;A layer — not designed for reading re-entry</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">KIMI</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.65);">需手动上传全文，隐私风险高，无场景专精<span class="cn-sub" style="display:block;margin-top:3px;">Requires full-text upload, high privacy risk, no reading-specific focus</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quote-block" style="border-left-color:#4a90d9;margin-top:24px;">
+    <div class="quote-label">机会点 Opportunity</div>
+    <p class="quote-text">没有人把「风格自适应」做到千书千面的粒度，也没有产品专门解决阅读重启这个高频场景。</p>
+    <p class="quote-text-cn">No one has achieved style adaptation at the granularity of one voice per book, and no product specifically addresses the high-frequency scenario of reading re-entry.</p>
   </div>
 </div>
 
-<!-- SOLUTION -->
+<!-- SECTION 3 解决方案 -->
 <div class="detail-section">
-  <div class="detail-section-label">Solution Design / 方案设计</div>
-  <h3 class="section-heading">Core Concept: Style-Adaptive Recap / 核心概念：风格自适应回顾</h3>
-  <p class="detail-body">Not just summaries — become the book's narrator. Using LLM style transfer, generate recaps in the book's exact tone and emotion when users return.</p>
-  <p class="detail-body cn-sub">不只是摘要——而是成为书中的叙述者。利用大语言模型的风格迁移能力，在用户返回时以书本原有的语气和情感生成回顾内容。</p>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-user-journey.jpg<span class="img-caption">User journey map / 用户旅程图</span></div>
-
-  <div class="criteria-list" style="margin-top:28px;">
+  <div class="detail-section-label">解决方案 Solution</div>
+  <h3 class="section-heading">四个核心设计决策 / Four Core Design Decisions</h3>
+  <div class="criteria-list" style="margin-top:16px;">
     <div class="criteria-item">
-      <div class="criteria-title">01 — Precise Positioning / 精准定位</div>
-      <div class="criteria-desc">Byte-offset tracking (no page numbers) for exact location recall. / 字节偏移量追踪（无需页码）实现精确位置记忆。</div>
+      <div class="criteria-title">决策 1 · 风格自适应重述<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 1 · Style-Adaptive Narration</span></div>
+      <div class="criteria-desc">系统基于当前书籍的文本与叙事风格，自动切换叙事口吻。《向上管理》用专业亲和风，《你当像鸟飞往你的山》用作者自述风。不是冷冰冰的摘要，而是有温度的心流唤醒，让用户感觉「叙事者还在等我」。<span class="cn-sub" style="display:block;margin-top:4px;">The system detects the book's narrative voice and adapts accordingly. <em>Managing Up</em> gets a professional tone; <em>Educated</em> gets the author's personal voice. Not a cold summary — a warm re-entry that makes users feel "the narrator was waiting for me."</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">02 — Context Extraction / 上下文提取</div>
-      <div class="criteria-desc">Dynamic 500–1,000 token window around the reading position. / 围绕阅读位置动态提取500-1000个token的上下文窗口。</div>
+      <div class="criteria-title">决策 2 · 精准 Offset 定位<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 2 · Byte-Offset Precision Positioning</span></div>
+      <div class="criteria-desc">基于字节偏移量精准定位上次阅读位置，动态截取 500–1,000 Tokens，确保上下文与情节紧密相连。一页内完成回顾，不跳转不打断，15–30 秒丝滑过渡原文。<span class="cn-sub" style="display:block;margin-top:4px;">Byte-offset tracking locates the exact last reading position, dynamically extracting 500–1,000 tokens of surrounding context. The recap fits in one screen, with no navigation required — a 15–30 second seamless transition back to the text.</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">03 — Style Analysis / 风格分析</div>
-      <div class="criteria-desc">AI identifies the book's narrative voice before generating the recap. / AI在生成回顾前先识别书籍的叙述风格。</div>
+      <div class="criteria-title">决策 3 · Local-First 架构<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 3 · Local-First Architecture</span></div>
+      <div class="criteria-desc">阅读数据仅存本地，仅上传脱敏短片段即用即销，绝不上传全书。从架构层同时解决隐私保护与版权合规两个问题。<span class="cn-sub" style="display:block;margin-top:4px;">Reading data stays on device. Only a short, anonymised excerpt is uploaded per request and discarded immediately — the full book is never transmitted. Privacy protection and copyright compliance solved at the architecture level.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 4 · 成本控制<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 4 · Cost Control</span></div>
+      <div class="criteria-desc">MVP 阶段粗放截取约 7,000 字，单次成本约 $0.04。生产环境通过 Offset 精准定位将 Context Window 严格限制在 1,000–2,000 Tokens，预计单次成本降至 &lt;$0.01，降低 75%+。单用户月成本约 ¥3.1，占微信读书月卡收入（¥19）的 16%，商业模型可行。<span class="cn-sub" style="display:block;margin-top:4px;">MVP used a rough ~7,000-character extraction at $0.04 per query. In production, byte-offset precision caps the context window at 1,000–2,000 tokens, bringing cost below $0.01 — a 75%+ reduction. Monthly cost per user ≈ ¥3.1, or 16% of the ¥19 subscription price. Viable business model.</span></div>
     </div>
   </div>
-  <p class="detail-body" style="margin-top:20px; opacity:0.5;">Total generation time: ~3 seconds. / 总生成时间：约3秒。</p>
 </div>
 
-<!-- DEVELOPMENT -->
+<!-- SECTION 4 执行过程 -->
 <div class="detail-section">
-  <div class="detail-section-label">Development Journey / 开发历程</div>
-  <h3 class="section-heading">MVP Sprint — 7 Days / MVP冲刺——7天</h3>
-  <p class="detail-body">Built on local TXT stream parsing with precise offset-based context extraction. Powered by the Claude 3.5 API and a "Dynamic Persona Injection" prompting strategy.</p>
-  <p class="detail-body cn-sub">基于本地TXT流解析与精准偏移量上下文提取构建。由 Claude 3.5 API 和"动态角色注入"提示策略驱动。</p>
-
-  <div class="timeline-list">
-    <div class="timeline-item"><span class="tl-day">Day 1–2</span><span class="tl-desc">Validated concept with 3 readers / 与3位读者验证概念</span></div>
-    <div class="timeline-item"><span class="tl-day">Day 3–5</span><span class="tl-desc">Built prototype (Next.js + Claude API) / 构建原型</span></div>
-    <div class="timeline-item"><span class="tl-day">Day 6–7</span><span class="tl-desc">Deployed demo, sent to test users / 部署演示，发送给测试用户</span></div>
+  <div class="detail-section-label">执行过程 Execution</div>
+  <h3 class="section-heading">技术架构三层 / Three-Layer Architecture</h3>
+  <div class="three-col" style="margin-top:20px;align-items:flex-start;">
+    <div class="stat-block" style="text-align:left;padding:20px 16px;">
+      <div style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;margin-bottom:10px;">数据层 Data</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1814;margin-bottom:8px;">精准定位 / Precision Positioning</div>
+      <p style="font-size:12px;color:rgba(20,18,14,0.6);line-height:1.6;">流式文本解析，基于字节偏移量精准定位，动态截取 500–1,000 Tokens，确保上下文与情节紧密相连。<br><span style="color:rgba(20,18,14,0.4);">Streaming text parsing with byte-offset positioning, dynamically extracting 500–1,000 tokens of tightly contextualised content.</span></p>
+    </div>
+    <div class="stat-block" style="text-align:left;padding:20px 16px;">
+      <div style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;margin-bottom:10px;">模型层 Model</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1814;margin-bottom:8px;">风格生成 / Style Generation</div>
+      <p style="font-size:12px;color:rgba(20,18,14,0.6);line-height:1.6;">Claude 3.5 + 动态人设注入，自动语调分析（Tone Analysis），匹配「叙事者面具」，生成风格同频的沉浸式回顾。<br><span style="color:rgba(20,18,14,0.4);">Claude 3.5 with dynamic persona injection. Automatic tone analysis matches the "narrator mask" to produce a style-matched immersive recap.</span></p>
+    </div>
+    <div class="stat-block" style="text-align:left;padding:20px 16px;">
+      <div style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;margin-bottom:10px;">安全层 Safety</div>
+      <div style="font-size:13px;font-weight:600;color:#1a1814;margin-bottom:8px;">隐私优先 / Privacy First</div>
+      <p style="font-size:12px;color:rgba(20,18,14,0.6);line-height:1.6;">阅读数据仅存本地，仅上传脱敏短片段即用即销，绝不上传全书。<br><span style="color:rgba(20,18,14,0.4);">Reading data stays on device. Only anonymised short excerpts are uploaded per request and immediately discarded — the full book is never sent.</span></p>
+    </div>
   </div>
 
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-tech-stack.jpg<span class="img-caption">Tech stack overview / 技术栈概览</span></div>
+  <h3 class="section-heading" style="margin-top:36px;">交互流程四步 / Four-Step Flow</h3>
+  <div class="timeline-list" style="margin-top:16px;">
+    <div class="timeline-item"><span class="tl-day">Step 1</span><span class="tl-desc">打开应用 / Open the app</span></div>
+    <div class="timeline-item"><span class="tl-day">Step 2</span><span class="tl-desc">自动定位上次阅读 Offset / Auto-locate last reading position</span></div>
+    <div class="timeline-item"><span class="tl-day">Step 3</span><span class="tl-desc">弹出前情回顾浮层 / Recap overlay appears</span></div>
+    <div class="timeline-item"><span class="tl-day">Step 4</span><span class="tl-desc">15–30 秒后丝滑过渡原文 / Seamless return to original text in 15–30 seconds</span></div>
+  </div>
+</div>
 
-  <div class="act-block" style="margin-top:32px;">
-    <div class="act-label">Key Technical Decision / 关键技术决策</div>
-    <h4 class="act-title">Cost Optimization: $0.04 → $0.01 per query / 成本优化：每次查询从$0.04降至$0.01</h4>
-    <p class="detail-body">Initial implementation cost $0.04 per query — too expensive for frequent users. Reduced context window from 7,000 to 1,000–2,000 tokens and implemented precise byte-offset positioning. Result: <strong>75% cost reduction.</strong></p>
-    <p class="detail-body cn-sub">初始实现每次查询花费$0.04——对高频用户而言成本太高。将上下文窗口从7000个token缩减至1000-2000个，并实现精准字节偏移定位。结果：<strong>成本降低75%。</strong></p>
-    <div class="criteria-list" style="margin-top:16px;">
-      <div class="criteria-item">
-        <div class="criteria-title">44 queries/month per user / 每用户每月44次查询</div>
-        <div class="criteria-desc">AI cost: $0.44/month / AI成本：每月$0.44</div>
+<!-- SECTION 5 数据验证 -->
+<div class="detail-section">
+  <div class="detail-section-label">数据验证 Validation</div>
+  <h3 class="section-heading">三项北极星指标（A/B Test 实验设计）<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Three North Star Metrics — A/B Test Design</span></h3>
+  <div class="three-col" style="margin-top:20px;">
+    <div class="stat-block">
+      <div class="stat-num" style="font-size:clamp(16px,2vw,24px);">3min→15s</div>
+      <div class="stat-label">阅读重启时间 / Re-entry time</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">+20%</div>
+      <div class="stat-label">次日续读率 / Day-2 return rate</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">+15%</div>
+      <div class="stat-label">月均完读率 / Completion rate</div>
+    </div>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:36px;">指标定义 / Metric Definitions</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:28%;">指标 Metric</th>
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:22%;">目标 Target</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">计算说明 Definition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">阅读重启时间<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Re-entry time</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">3min → 15s</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">T = Time(C) − Time(A)，C 为首次向后翻页时间戳<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">C = timestamp of first forward page-turn after session open</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">次日续读率<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Day-2 return rate</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">提升 20%+</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">追踪 User_ID + Book_ID 活跃记录<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Track User_ID + Book_ID activity records</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">月均完读率<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Monthly completion rate</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">提升 15%+</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">Book_Finish = 进度 &gt;95% 或点击「读完」<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Book_Finish = progress &gt;95% or user taps "Finished"</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 6 反思 -->
+<div class="detail-section">
+  <div class="detail-section-label">反思 Reflection</div>
+  <h3 class="section-heading">如果再来一次，我会改变三件事<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Three Things I'd Change If I Did This Again</span></h3>
+
+  <div style="margin-top:24px;">
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(74,144,217,0.2);line-height:1;flex-shrink:0;">1/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">更早验证用户对「AI 生成内容」的信任问题</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">Validate user trust in AI-generated content earlier.</div>
+        <p class="detail-body">方案设计阶段我假设用户会接受 AI 生成的前情提要，但实际上「AI 会不会编造情节」是用户最先问的问题。应该更早在 Prompt 层加入「仅基于提供片段生成，禁止外部知识推断」的硬约束，并在 UI 层明确告知用户。</p>
+        <p class="detail-body cn-sub">During design I assumed users would accept AI-generated recaps. In reality, "will the AI make up plot points?" was the first question users asked. I should have added a hard prompt constraint — "generate only from the provided excerpt, no external inference" — much earlier, and communicated this clearly in the UI.</p>
       </div>
-      <div class="criteria-item">
-        <div class="criteria-title">WeChat Read subscription / 微信读书订阅</div>
-        <div class="criteria-desc">¥19/month (~$2.60) / 每月19元（约$2.60）</div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(74,144,217,0.2);line-height:1;flex-shrink:0;">2/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">成本模型应该更早介入设计决策</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">Bring cost modelling into design decisions earlier.</div>
+        <p class="detail-body">MVP 阶段粗放截取 7,000 字是为了保证演示效果，但这个成本结构在生产环境完全不可持续。Offset 精准定位技术其实在设计阶段就已经规划，应该更早作为硬约束而不是优化项。</p>
+        <p class="detail-body cn-sub">The rough 7,000-character extraction in MVP was fine for demos, but completely unsustainable in production. The byte-offset precision technique was already planned at design stage — it should have been a hard constraint from day one, not an optimisation item.</p>
       </div>
-      <div class="criteria-item">
-        <div class="criteria-title">AI cost = 16% of revenue / AI成本占收入的16%</div>
-        <div class="criteria-desc">✅ Economically sustainable / 经济上可持续</div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(74,144,217,0.2);line-height:1;flex-shrink:0;">3/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">竞品分析应该纳入用户实际使用路径</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">Competitor analysis should include actual user behaviour at the interruption point.</div>
+        <p class="detail-body">我分析了 Kindle / AI 问书 / KIMI 的功能差异，但没有深入研究用户在阅读断点时的实际行为——很多用户选择的不是用工具续接，而是直接往前翻几页重读。这个行为本身就是一个重要的设计输入。</p>
+        <p class="detail-body cn-sub">I analysed feature differences across Kindle / AI Q&A / KIMI, but didn't study what users actually do at a reading interruption — many simply scroll back a few pages and re-read. That behaviour itself is a critical design input I missed.</p>
       </div>
     </div>
   </div>
 
-  <div class="act-block" style="margin-top:32px;">
-    <div class="act-label">Biggest Challenge / 最大挑战</div>
-    <h4 class="act-title">Style-Matching is Hard / 风格匹配很难</h4>
-    <p class="detail-body">Early attempts produced generic summaries. Breakthrough came from: (1) analyzing the book's tone before generating the recap, (2) injecting a "narrator persona" dynamically, (3) testing with dramatically different books — Freud vs Austen vs Marx.</p>
-    <p class="detail-body cn-sub">早期尝试只能产出通用摘要。突破来自：（1）在生成回顾前先分析书籍语气，（2）动态注入"叙述者角色"，（3）用风格截然不同的书籍测试——弗洛伊德 vs 奥斯汀 vs 马克思。</p>
-  </div>
-</div>
-
-<!-- TESTING -->
-<div class="detail-section">
-  <div class="detail-section-label">Testing &amp; Results / 测试与成果</div>
-  <div class="img-grid-2">
-    <div>
-      <h4 class="act-title" style="font-size:14px;">Self-Testing (n=3) / 自测（n=3）</h4>
-      <p class="detail-body">Manual restart: 3 min average. With AI recap: 15 sec average. Result: <strong>85% faster.</strong></p>
-      <p class="detail-body cn-sub">手动重启：平均3分钟。AI回顾：平均15秒。结果：<strong>快85%。</strong></p>
-    </div>
-    <div>
-      <h4 class="act-title" style="font-size:14px;">User Testing (n=12, target 15) / 用户测试（n=12，目标15）</h4>
-      <p class="detail-body">Would use regularly: 9/12 (75%). Time savings confirmed: 11/12. Keyword quality: 7/10 avg.</p>
-      <p class="detail-body cn-sub">愿意定期使用：9/12（75%）。确认节省时间：11/12。关键词质量：平均7/10。</p>
-    </div>
-  </div>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-feedback.jpg<span class="img-caption">Qualitative feedback loop / 定性反馈循环</span></div>
-</div>
-
-<!-- STATUS -->
-<div class="detail-section">
-  <div class="detail-section-label">Current Status / 当前状态</div>
-  <p class="detail-body">Demo live with 6 classic books: The Interpretation of Dreams (Freud), Pride and Prejudice (Austen), The Communist Manifesto (Marx), Self-Reliance (Emerson), Decline and Fall of the Roman Empire (Gibbon), On the Origin of Species (Darwin).</p>
-  <p class="detail-body cn-sub">演示版已上线，包含6本经典书籍：《梦的解析》（弗洛伊德）、《傲慢与偏见》（奥斯汀）、《共产党宣言》（马克思）、《自力更生》（爱默生）、《罗马帝国衰亡史》（吉本）、《物种起源》（达尔文）。</p>
-  <p class="detail-body" style="margin-top:12px;">Style accuracy: <strong>70% → target 80%.</strong> Improving: material/color terminology, tone consistency across genres, context boundary detection.</p>
-  <p class="detail-body cn-sub">风格准确率：<strong>70% → 目标80%。</strong>改进方向：材质/颜色术语、跨类型语气一致性、上下文边界检测。</p>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-accuracy.jpg<span class="img-caption">Accuracy progress chart / 准确率进度图</span></div>
-</div>
-
-<!-- LEARNINGS -->
-<div class="detail-section">
-  <div class="detail-section-label">Learnings &amp; Reflections / 收获与反思</div>
-  <div class="reflection-grid">
-    <div class="reflection-item">
-      <div class="reflection-num">01</div>
-      <div class="reflection-title">Build for emotion, not just function. / 为情感而设计，不只是功能。</div>
-      <p class="detail-body" style="font-size:13px;">Users don't want "what happened" — they want "how it felt." Optimizing for emotional continuity, not information density. The metrics followed naturally.</p>
-      <p class="detail-body cn-sub">用户不想要"发生了什么"——他们想要"那种感觉"。优化情感连续性而非信息密度，各项指标自然随之提升。</p>
-    </div>
-    <div class="reflection-item">
-      <div class="reflection-num">02</div>
-      <div class="reflection-title">Cost optimization through constraint. / 用约束实现成本优化。</div>
-      <p class="detail-body" style="font-size:13px;">$0.04 → $0.01 came from accepting that we don't need the full chapter. 1,000 tokens is enough if positioned precisely. This 75% cost reduction made the product viable.</p>
-      <p class="detail-body cn-sub">从$0.04降到$0.01，源于接受"我们不需要完整章节"这一事实。精准定位时，1000个token已经足够。这75%的成本降低让产品变得可行。</p>
-    </div>
-    <div class="reflection-item">
-      <div class="reflection-num">03</div>
-      <div class="reflection-title">Style-matching > summarization. / 风格匹配 > 内容摘要。</div>
-      <p class="detail-body" style="font-size:13px;">Users accepted factual errors if the voice felt right. But perfect facts in the wrong tone = "feels like a robot." For reading products, emotional accuracy > factual accuracy.</p>
-      <p class="detail-body cn-sub">如果语气对了，用户会接受事实性错误。但用错误语气呈现完美事实 = "感觉像机器人"。对于阅读类产品，情感准确性 > 事实准确性。</p>
-    </div>
-  </div>
-
-  <div class="quote-block" style="border-left-color:#4a90d9; margin-top:32px;">
-    <div class="quote-label">What I'd do differently / 如果重来一次</div>
-    <p class="quote-text">Start with 3 book types instead of 6 to perfect style-matching faster. Build feedback collection earlier — accuracy improved fastest after real user input. Test mobile experience sooner (60% of readers use phones).</p>
-    <p class="quote-text-cn">先从3种书型而非6种开始，更快完善风格匹配。更早建立反馈收集机制——真实用户输入后准确率提升最快。更早测试移动端体验（60%的读者使用手机）。</p>
-  </div>
-</div>
-
-<!-- NEXT -->
-<div class="detail-section">
-  <div class="detail-section-label">What's Next / 下一步计划</div>
-  <div class="img-grid-2">
+  <h3 class="section-heading" style="margin-top:8px;">产品还未解决的问题 / Open Problems</h3>
+  <div class="criteria-list">
     <div class="criteria-item">
-      <div class="criteria-title">✅ Doing Now / 正在进行</div>
-      <div class="criteria-desc">Complete 15-user validation (6/15 done). Improve accuracy to 80%. Test with EPUB/PDF formats (currently TXT only). / 完成15用户验证（已完成6/15）。将准确率提升至80%。测试EPUB/PDF格式（目前仅支持TXT）。</div>
+      <div class="criteria-title">AI 幻觉风险 / Hallucination Risk</div>
+      <div class="criteria-desc">模型可能在片段不完整时补全不存在的情节<span class="cn-sub" style="display:block;margin-top:4px;">The model may fabricate plot details when the provided excerpt is incomplete</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">❌ Not Doing (And Why) / 暂不进行（原因）</div>
-      <div class="criteria-desc">Full launch, mobile app, monetization — all deferred until product-market fit is validated with 15 users. / 全面上线、移动应用、商业化——均推迟至15用户验证产品市场契合度之后。</div>
+      <div class="criteria-title">格式兼容性 / Format Compatibility</div>
+      <div class="criteria-desc">目前仅支持微信读书内置格式，EPUB / PDF 导入尚在规划<span class="cn-sub" style="display:block;margin-top:4px;">Currently supports WeChat Reading's native format only — EPUB / PDF import is planned</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">多设备同步 / Cross-Device Sync</div>
+      <div class="criteria-desc">阅读心流状态目前不跨设备同步<span class="cn-sub" style="display:block;margin-top:4px;">Reading flow state does not currently sync across devices</span></div>
     </div>
   </div>
-
-  <div class="img-placeholder-block" style="margin-top:20px;">img/wechat-roadmap.jpg</div>
-
-  <div class="quote-block" style="border-left-color:#4a90d9; margin-top:28px;">
-    <div class="quote-label">If This Were Real / 如果这是真实产品</div>
-    <p class="quote-text">Partnership approach: pitch WeChat Read, Kindle, and reading platforms to add this as a premium feature. Revenue share: 16% AI cost leaves room for a 50/50 split. Expansion: audiobook integration (voice-matched recaps), cross-book discovery, social recap cards.</p>
-    <p class="quote-text-cn">合作方式：向微信读书、Kindle及各阅读平台提案，将此功能作为高级功能加入。收益分成：16%的AI成本为50/50分成留有空间。拓展方向：有声书集成（语音匹配回顾）、跨书目发现、社交回顾卡片。</p>
-    <p class="quote-text" style="margin-top:8px; opacity:0.5;">But first: validate with 15 users. Everything else is speculation. / 但首先：用15位用户验证。其余一切都是推测。</p>
-  </div>
 </div>
+
 `,
   vintage: `
 <div class="detail-header">
   <div class="detail-num">02</div>
-  <div class="detail-title">Vintage Search</div>
-  <div class="detail-title-cn">中古奢品搜索 Demo — Vintage Luxury Resale Search</div>
-  <span class="detail-type">AI Product · Solo Build / AI产品 · 独立开发</span>
+  <div class="detail-title">古着包跨平台搜索工具</div>
+  <div class="detail-title-cn">PreloveFinder · Vintage Luxury Cross-Platform Search</div>
+  <div style="font-size:13px;color:rgba(20,18,14,0.45);margin-top:8px;font-style:italic;">一键搜遍六大平台，30 秒找到你的包 / Search six platforms in one click, find your bag in 30 seconds.</div>
+  <span class="detail-type">Web 工具 · AI 关键词生成</span>
   <div class="detail-meta-row">
-    <span>Product Designer &amp; Builder / 产品设计师兼开发者</span><span class="dot">·</span><span>2024</span>
-    <span class="dot">·</span>
-    <span>GPT-4o Vision · Next.js · Built in 1 week</span>
+    <span>个人独立开发</span><span class="dot">·</span><span>1 周 MVP，持续迭代中</span>
   </div>
   <div style="margin-top:20px;">
     <a href="https://resale-compare-demo.vercel.app/" target="_blank" class="detail-link" style="background:#6ab04c; border-color:#6ab04c;">🎮 Try Live Demo →</a>
   </div>
 </div>
 
+<!-- SECTION 1 背景 -->
 <div class="detail-section">
-  <div class="detail-section-label">Overview / 概览</div>
-  <p class="detail-body">Based on GPT-4o Vision. Help vintage buyers search across 6 shopping platforms in 30 seconds. Built solo in 1 week. Validated with 12 real users.</p>
-  <p class="detail-body cn-sub">基于 GPT-4o Vision。帮助古着买手在30秒内跨6个购物平台搜索商品。独立开发，历时1周。已与12位真实用户验证。</p>
-  <div class="img-placeholder-block tall" style="margin-top:20px;">img/vintage-overview.jpg</div>
-</div>
-
-<div class="detail-section">
-  <div class="detail-section-label">Problem Discovery / 问题发现</div>
-  <h3 class="section-heading">The Daily Grind of Multi-Platform Search / 多平台搜索的日常折磨</h3>
-  <div class="quote-block" style="border-left-color:#6ab04c;">
-    <div class="quote-label">Origin — Personal Pain Point / 起源——亲身痛点</div>
-    <p class="quote-text">"When I was working in the vintage market in London, I had to search for different vintage products on 6+ different platforms every day, using different terminology on each platform, and manually re-entering the information each time — which took up a lot of time."</p>
-    <p class="quote-text-cn">「在伦敦古着市场工作时，我每天需要在6个以上不同平台搜索不同的古着商品，每个平台用词不同，每次都要手动重新输入信息——耗费了大量时间。」</p>
-  </div>
-  <div class="three-col" style="margin-top:28px;">
+  <div class="detail-section-label">背景 Background</div>
+  <h3 class="section-heading">一个包搜六个平台，每次都要重新发明轮子<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Six Platforms per Bag, Reinventing the Wheel Every Time</span></h3>
+  <p class="detail-body">我在伦敦古着市场工作期间，每天需要在 eBay、Vestiaire、Vinted、Etsy、闲鱼、Depop 六个平台上搜索同一件包。每个平台用的术语不同——同一个 Chanel Classic Flap，eBay 叫「Caviar Leather Handbag」，Vestiaire 叫「Cuir Caviar Noir Sac à Main」，闲鱼叫「鱼子酱皮 CF包」——每次都要手动重新输入，一个包搜下来要花 30 分钟以上。</p>
+  <p class="detail-body cn-sub">While working at a vintage market in London, I had to search for the same bag across six platforms every day — eBay, Vestiaire, Vinted, Etsy, Xianyu, and Depop. Each platform uses different terminology: the same Chanel Classic Flap is listed as "Caviar Leather Handbag" on eBay, "Cuir Caviar Noir Sac à Main" on Vestiaire, and "鱼子酱皮 CF包" on Xianyu. Every search required manual re-entry. One bag could take 30+ minutes.</p>
+  <div class="three-col" style="margin-top:24px;">
     <div class="stat-block">
-      <div class="stat-num">50</div>
-      <div class="stat-label">Vintage shop owners validated / 已验证的古着店主</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">70%</div>
-      <div class="stat-label">Coverage of London vintage market / 伦敦古着市场覆盖率</div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">需要同时搜索的平台数 / Platforms to search</div>
     </div>
     <div class="stat-block">
       <div class="stat-num">84%</div>
-      <div class="stat-label">Reported the same pain point / 反映相同痛点</div>
+      <div class="stat-label">店主反映同样困扰 / Resellers with same pain</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">30min+</div>
+      <div class="stat-label">搜一件包的平均耗时 / Time per item search</div>
     </div>
   </div>
+  <p class="detail-body" style="margin-top:20px;">为验证这个痛点是否普遍，我走访了伦敦古着市场 50 位店主（覆盖伦敦古着市场 70%），84% 反映同样困扰。这不是个人习惯问题，是行业性效率漏洞。</p>
+  <p class="detail-body cn-sub">To validate whether this was a widespread pain point, I interviewed 50 vintage market vendors in London (covering 70% of the market). 84% reported the same frustration. This isn't a personal habit issue — it's an industry-wide efficiency gap.</p>
 </div>
 
+<!-- SECTION 2 问题发现 -->
 <div class="detail-section">
-  <div class="detail-section-label">Solution Design / 方案设计</div>
-  <h3 class="section-heading">One Click. Six Platforms. 30 Seconds. / 一键搜索，六大平台，30秒搞定。</h3>
-  <p class="detail-body">Upload or describe an item — the tool generates platform-optimised keywords and opens all 6 platforms simultaneously with a single click.</p>
-  <p class="detail-body cn-sub">上传或描述一件物品——工具自动生成各平台优化关键词，一键同时打开全部6个平台。</p>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/vintage-solution.jpg</div>
-</div>
+  <div class="detail-section-label">问题发现 Problem Discovery</div>
+  <h3 class="section-heading">关键词壁垒：用错词，漏掉的你根本不知道<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">The Keyword Barrier: Wrong Terms, Missing Items You'll Never Know About</span></h3>
+  <p class="detail-body">核心痛点是跨平台搜索的关键词壁垒。同一件奢侈品包，在不同平台有不同的「正确搜索词」——品牌别名、材质叫法、系列编号各不相同。用错关键词就会漏掉大量商品，而用户根本无从得知自己漏了什么。</p>
+  <p class="detail-body cn-sub">The core problem is the keyword barrier across platforms. The same luxury bag has different "correct" search terms on each platform — brand aliases, material names, and model codes all vary. Using the wrong keyword means missing huge amounts of inventory, with no way to know what you're missing.</p>
 
-<div class="detail-section">
-  <div class="detail-section-label">Development Journey / 开发历程</div>
-  <h3 class="section-heading">MVP in 7 Days / 7天内完成MVP</h3>
-  <div class="act-block">
-    <div class="act-label">Biggest Challenge / 最大挑战</div>
-    <h4 class="act-title">Anti-Scraping Killed the Original Idea → Better Product Emerged / 反爬机制扼杀了原始想法→更好的产品由此诞生</h4>
-    <p class="detail-body">The original plan was real-time price comparison. Anti-scraping protections blocked this entirely. The pivot: generate the right search keywords for each platform's unique terminology instead. The constraint produced better UX than the original plan.</p>
-    <p class="detail-body cn-sub">原定计划是实时价格比较。反爬保护机制彻底阻断了这条路。转型方向：为每个平台的独特术语体系生成匹配的搜索关键词。这个约束反而带来了比原计划更好的用户体验。</p>
-  </div>
-  <div class="criteria-list" style="margin-top:8px;">
+  <h3 class="section-heading" style="margin-top:32px;">现有方案的缺陷 / Existing Solutions Gap</h3>
+  <div class="criteria-list" style="margin-top:16px;">
     <div class="criteria-item">
-      <div class="criteria-title">Why 6 platforms? / 为什么是6个平台？</div>
-      <div class="criteria-desc">Covers the major resale venues used by London vintage buyers — each with distinct search vocabularies and item taxonomies. / 涵盖伦敦古着买手使用的主要转售平台——每个平台都有独特的搜索词汇和商品分类体系。</div>
+      <div class="criteria-title">手动搜索 / Manual Search</div>
+      <div class="criteria-desc">6 个平台逐一打开，逐一输入关键词，平均耗时 30 分钟/包，且容易遗漏平台<span class="cn-sub" style="display:block;margin-top:4px;">Open 6 platforms one by one, enter keywords manually — avg. 30 min per bag, and platforms are easily missed</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">Why keyword generation? / 为什么选择关键词生成？</div>
-      <div class="criteria-desc">Each platform indexes items differently. GPT-4o Vision translates once, across all six simultaneously. / 每个平台的商品索引方式各异。GPT-4o Vision 一次翻译，同时适配全部六个平台。</div>
+      <div class="criteria-title">价格比较网站 / Price Comparison Sites</div>
+      <div class="criteria-desc">依赖爬虫，反爬机制导致数据残缺，且不解决「关键词差异」这个根本问题<span class="cn-sub" style="display:block;margin-top:4px;">Rely on scraping; anti-scraping measures cause incomplete data, and the root problem of keyword variation remains unsolved</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">Why not price comparison? / 为什么不做价格比较？</div>
-      <div class="criteria-desc">Honest answer: scraping is technically blocked. But users confirmed keyword friction was the bigger pain anyway. / 诚实回答：爬取技术上被封堵了。但用户也证实了关键词障碍才是更大的痛点。</div>
+      <div class="criteria-title">通用 AI 搜索 / Generic AI Search</div>
+      <div class="criteria-desc">不了解各平台的术语习惯，生成的关键词精准度低<span class="cn-sub" style="display:block;margin-top:4px;">Unaware of each platform's terminology conventions — generated keywords lack precision</span></div>
     </div>
+  </div>
+
+  <div class="quote-block" style="border-left-color:#6ab04c;margin-top:24px;">
+    <div class="quote-label">机会点 Opportunity</div>
+    <p class="quote-text">没有工具能同时理解「这是什么包」和「各平台怎么叫它」，并一键打通六个平台的搜索入口。</p>
+    <p class="quote-text-cn">No tool can simultaneously understand "what bag is this" and "what does each platform call it," then open all six search entries in one click.</p>
   </div>
 </div>
 
+<!-- SECTION 3 解决方案 -->
 <div class="detail-section">
-  <div class="detail-section-label">Testing &amp; Results / 测试与成果</div>
-  <div class="img-grid-2">
-    <div class="stat-block" style="border-top:none; padding-top:0;">
-      <div class="stat-num">30 sec</div>
-      <div class="stat-label" style="margin-bottom:8px;">vs 30+ min manual search / 对比手动搜索30+分钟</div>
-      <p class="detail-body" style="font-size:13px;">Self-testing (n=3 controlled trials). Consistent result across 3 different item types.</p>
-      <p class="detail-body cn-sub">自测（n=3次对照实验），在3种不同商品类型中结果一致。</p>
-    </div>
-    <div class="stat-block" style="border-top:none; padding-top:0;">
-      <div class="stat-num">7 / 12</div>
-      <div class="stat-label" style="margin-bottom:8px;">Would use regularly / 愿意定期使用</div>
-      <p class="detail-body" style="font-size:13px;">User testing (n=12). 30+ feedback entries collected in Notion dataset.</p>
-      <p class="detail-body cn-sub">用户测试（n=12）。在 Notion 数据集中收集了30+条反馈。</p>
-    </div>
-  </div>
-  <div class="img-placeholder-block" style="margin-top:24px;">img/vintage-testing.jpg</div>
-</div>
-
-<div class="detail-section">
-  <div class="detail-section-label">Current Status / 当前状态</div>
-  <p class="detail-body">Keyword accuracy currently at 70%, target 90%. Bags trained: 200 models, target 300. Weekly retraining cycle using Notion feedback dataset.</p>
-  <p class="detail-body cn-sub">关键词准确率目前为70%，目标90%。已训练箱包：200个模型，目标300个。使用 Notion 反馈数据集每周重新训练。</p>
-  <div class="img-placeholder-block" style="margin-top:20px;">img/vintage-status.jpg</div>
-</div>
-
-<div class="detail-section">
-  <div class="detail-section-label">Learnings &amp; Reflections / 收获与反思</div>
-  <div class="reflection-grid">
-    <div class="reflection-item">
-      <div class="reflection-num">01</div>
-      <div class="reflection-title">Constraints → Better Solutions / 约束→更好的方案</div>
-      <p class="detail-body" style="font-size:13px;">Can't scrape prices → built a keyword generator instead. Result: better UX than the original plan, and a more defensible product.</p>
-      <p class="detail-body cn-sub">无法爬取价格→改为构建关键词生成器。结果：比原计划更好的用户体验，也是更有护城河的产品。</p>
-    </div>
-    <div class="reflection-item">
-      <div class="reflection-num">02</div>
-      <div class="reflection-title">Ship Fast, Learn Faster / 快速发布，更快学习</div>
-      <p class="detail-body" style="font-size:13px;">1 week build · 4 weeks learning. The ratio should be 1:10, not 1:4. The real product work happens after launch.</p>
-      <p class="detail-body cn-sub">1周开发 · 4周学习。这个比例应该是1:10，而不是1:4。真正的产品工作在上线之后才开始。</p>
-    </div>
-    <div class="reflection-item">
-      <div class="reflection-num">03</div>
-      <div class="reflection-title">Niche Beats Mass Market / 垂直细分胜过大众市场</div>
-      <p class="detail-body" style="font-size:13px;">19 saves from real vintage buyers. More valuable than 1,000 random likes. Depth of fit matters more than breadth of reach.</p>
-      <p class="detail-body cn-sub">来自真实古着买手的19次收藏，比1000个随机点赞更有价值。契合深度比覆盖广度更重要。</p>
-    </div>
-  </div>
-  <div class="quote-block" style="border-left-color:#6ab04c; margin-top:32px;">
-    <div class="quote-label">Feedback Quality &gt; Quantity / 反馈质量 &gt; 数量</div>
-    <p class="quote-text">30 specific corrections changed product direction more than all the user interviews combined. Structured feedback loops beat open-ended research at this stage.</p>
-    <p class="quote-text-cn">30条具体修正意见对产品方向的影响，超过了所有用户访谈的总和。在这个阶段，结构化的反馈循环胜过开放式研究。</p>
-  </div>
-</div>
-
-<div class="detail-section">
-  <div class="detail-section-label">What's Next / 下一步计划</div>
-  <div class="img-grid-2">
+  <div class="detail-section-label">解决方案 Solution</div>
+  <h3 class="section-heading">四个核心设计决策 / Four Core Design Decisions</h3>
+  <div class="criteria-list" style="margin-top:16px;">
     <div class="criteria-item">
-      <div class="criteria-title">✅ Doing Now / 正在进行</div>
-      <div class="criteria-desc">90% keyword accuracy. Add RealReal to platform list. Train 300 bag models. Weekly retraining cycle. / 实现90%关键词准确率。将RealReal加入平台列表。训练300个包袋模型。每周重训练循环。</div>
+      <div class="criteria-title">决策 1 · 图片或文字描述即输入<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 1 · Photo or Text Description as Input</span></div>
+      <div class="criteria-desc">用户上传包的照片或输入文字描述，AI（GPT-4o Vision）自动提取品牌、型号、颜色、材质等关键属性，无需用户了解各平台术语。<span class="cn-sub" style="display:block;margin-top:4px;">Users upload a photo or type a description. GPT-4o Vision automatically extracts brand, model, colour, and material — no knowledge of platform-specific terminology required.</span></div>
     </div>
     <div class="criteria-item">
-      <div class="criteria-title">❌ Not Doing (And Why) / 暂不进行（原因）</div>
-      <div class="criteria-desc">Price scraping (technically blocked). Mobile app (web validates first). Full marketplace (need accuracy first). / 价格爬取（技术上被封堵）。移动应用（先在网页端验证）。完整市场功能（需先达到准确率目标）。</div>
+      <div class="criteria-title">决策 2 · 平台专属关键词自动生成<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 2 · Platform-Specific Keyword Generation</span></div>
+      <div class="criteria-desc">针对 eBay、Vestiaire、Vinted、Etsy、闲鱼、Depop 六个平台，分别生成符合各平台搜索习惯的关键词组合。同一个包，六套不同的精准词。<span class="cn-sub" style="display:block;margin-top:4px;">Generates a tailored keyword set for each of the six platforms, matching each platform's search conventions. One bag, six distinct precision keyword sets.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 3 · 一键打开所有平台<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 3 · One-Click Open All Platforms</span></div>
+      <div class="criteria-desc">点击一次，六个平台同时在新标签页打开对应搜索结果，用户在各平台原生界面浏览，无需离开原有使用习惯。<span class="cn-sub" style="display:block;margin-top:4px;">One click opens all six platforms in new tabs with the correct search pre-filled. Users browse each platform's native interface — no change to their existing buying habits.</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">决策 4 · 放弃价格比较，专注关键词<span class="cn-sub" style="display:block;font-size:11px;font-weight:400;margin-top:2px;">Decision 4 · Drop Price Aggregation, Focus on Keywords</span></div>
+      <div class="criteria-desc">原始方案是做价格对比聚合，但反爬机制导致数据获取不稳定。转型为关键词生成器反而带来更好的用户体验——让用户在原平台自己浏览，保留了筛选、议价、看评价的完整购买流程。<span class="cn-sub" style="display:block;margin-top:4px;">The original plan was price aggregation, but anti-scraping measures made data unreliable. Pivoting to a keyword generator actually produced better UX — users browse natively, preserving filtering, negotiation, and review-reading in the full purchase flow.</span></div>
     </div>
   </div>
-  <div class="quote-block" style="border-left-color:#6ab04c; margin-top:28px;">
-    <div class="quote-label">Focus / 专注</div>
-    <p class="quote-text">Nail keyword accuracy before adding features. Every new feature added before 90% accuracy is debt.</p>
-    <p class="quote-text-cn">在添加功能前先打磨关键词准确率。在达到90%准确率之前添加的每个新功能都是技术债务。</p>
+</div>
+
+<!-- SECTION 4 执行过程 -->
+<div class="detail-section">
+  <div class="detail-section-label">执行过程 Execution</div>
+  <h3 class="section-heading">技术选型 / Tech Stack</h3>
+  <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:25%;">模块 Module</th>
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:30%;">选型 Choice</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">说明 Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">AI 识别<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">AI Recognition</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">GPT-4o Vision</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">提取品牌 / 型号 / 颜色 / 材质<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Extracts brand / model / colour / material</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">前端<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Frontend</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">纯 Web Demo</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">1 周独立完成 MVP<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Solo MVP completed in 1 week</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">数据飞轮<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Data Flywheel</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">Notion 数据库</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">用户反馈 → 每周日复训 → 周一上线<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">User feedback → retrain every Sunday → deploy Monday</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="section-heading" style="margin-top:36px;">模型准确率迭代 / Model Accuracy Iterations</h3>
+  <div class="timeline-list" style="margin-top:16px;">
+    <div class="timeline-item"><span class="tl-day">Week 1</span><span class="tl-desc">准确率 60%，包模型数量 50 个 / 60% accuracy, 50 bag models</span></div>
+    <div class="timeline-item"><span class="tl-day">Week 2</span><span class="tl-desc">复训至 100 个包 / Retrained to 100 bag models</span></div>
+    <div class="timeline-item"><span class="tl-day">Week 4</span><span class="tl-desc">复训至 150 个包 / Retrained to 150 bag models</span></div>
+    <div class="timeline-item"><span class="tl-day">Week 6</span><span class="tl-desc">复训至 175 个包 / Retrained to 175 bag models</span></div>
+    <div class="timeline-item"><span class="tl-day">Week 8</span><span class="tl-desc">包模型 200+，准确率达 70% / 200+ bag models, accuracy reached 70%</span></div>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:36px;">用户反馈机制 / Feedback Loop</h3>
+  <p class="detail-body">底部结构化反馈表单：选择平台 → 选择关键词类型（精准 / 宽泛）→ 填写正确关键词 → 说明原因。累计收集 30+ 条反馈，周均新增 7 条修正。每条具体反馈对产品方向的影响，远超用户访谈。</p>
+  <p class="detail-body cn-sub">A structured feedback form at the bottom of the page: select platform → select keyword type (precise / broad) → enter correct keyword → explain why. 30+ entries collected in total, averaging 7 new corrections per week. Each specific piece of feedback has shaped product direction more than any user interview.</p>
+</div>
+
+<!-- SECTION 5 数据验证 -->
+<div class="detail-section">
+  <div class="detail-section-label">数据验证 Validation</div>
+  <h3 class="section-heading">核心数据 / Key Results</h3>
+  <div class="three-col" style="margin-top:20px;">
+    <div class="stat-block">
+      <div class="stat-num">94%</div>
+      <div class="stat-label">搜索提速 / Search time reduction</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">9/12</div>
+      <div class="stat-label">用户表示会定期使用 / Would use regularly</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">19次</div>
+      <div class="stat-label">小红书收藏 / Xiaohongshu saves</div>
+    </div>
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;margin-top:28px;font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.15);">
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:30%;">指标 Metric</th>
+        <th style="text-align:left;padding:10px 12px 10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;width:28%;">数值 Value</th>
+        <th style="text-align:left;padding:10px 0;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(20,18,14,0.35);font-weight:400;">说明 Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">搜索时间<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Search time</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">30 分钟 → 30 秒</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">测试包：Chanel、Hermès、Balenciaga<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Test bags: Chanel, Hermès, Balenciaga</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">包模型数量<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Bag models</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">200+</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">每周复训，持续增加<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Retrained weekly, continuously growing</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">模型准确率<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Model accuracy</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">70%（目标 90%）</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">从上线时 60% 持续提升<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Improved from 60% at launch, target 90%</span></td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(20,18,14,0.07);">
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">反馈条目<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Feedback entries</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">30+，周均新增 7 条</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">存入 Notion，驱动每周迭代<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">Stored in Notion, driving weekly iteration</span></td>
+      </tr>
+      <tr>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.85);font-weight:600;">小红书收藏<br><span style="font-weight:400;font-size:11px;color:rgba(20,18,14,0.4);">Xiaohongshu saves</span></td>
+        <td style="padding:12px 12px 12px 0;color:rgba(20,18,14,0.75);">19 次</td>
+        <td style="padding:12px 0;color:rgba(20,18,14,0.55);">来自真实古着买家，精准用户自然传播<br><span style="font-size:11px;color:rgba(20,18,14,0.4);">From real vintage buyers — organic reach within target audience</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 6 反思 -->
+<div class="detail-section">
+  <div class="detail-section-label">反思 Reflection</div>
+  <h3 class="section-heading">如果再来一次，我会改变三件事<br><span class="cn-sub" style="font-size:0.7em;font-weight:400;">Three Things I'd Change If I Did This Again</span></h3>
+
+  <div style="margin-top:24px;">
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(106,176,76,0.25);line-height:1;flex-shrink:0;">1/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">约束往往带来更好的解决方案</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">Constraints often lead to better solutions.</div>
+        <p class="detail-body">原本想做价格对比聚合，被反爬机制堵死之后转型做关键词生成器。结果反而更好——用户在原平台浏览，保留了完整的购买决策链路，体验比聚合页面自然得多。遇到技术瓶颈不应该硬冲，先问「绕开它能不能做出更好的东西」。</p>
+        <p class="detail-body cn-sub">I originally planned a price aggregation tool. When anti-scraping measures blocked that path, I pivoted to a keyword generator — and the result was actually better. Users browse natively, preserving the full purchase decision flow. The experience is far more natural than any aggregation page. When you hit a technical wall, ask first: "could going around it produce something better?"</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(106,176,76,0.25);line-height:1;flex-shrink:0;">2/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">发货与学习的比例应该是 1:10，不是 1:4</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">The ship-to-learn ratio should be 1:10, not 1:4.</div>
+        <p class="detail-body">我用 1 周做了 MVP，之后花了 4 周在学习和迭代。这个比例应该更激进——更快发货、更长时间在真实用户反馈里泡着。产品学到的东西 90% 来自上线后，不是上线前。</p>
+        <p class="detail-body cn-sub">I spent 1 week building the MVP and 4 weeks learning and iterating. That ratio should be more aggressive — ship faster, spend far more time soaking in real user feedback. 90% of what a product teaches you comes after launch, not before.</p>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;margin-bottom:32px;align-items:flex-start;">
+      <div style="font-size:clamp(32px,4vw,48px);font-weight:700;color:rgba(106,176,76,0.25);line-height:1;flex-shrink:0;">3/</div>
+      <div>
+        <div style="font-size:15px;font-weight:600;color:#1a1814;margin-bottom:4px;">精准用户的信号远比数量重要</div>
+        <div style="font-size:12px;color:rgba(20,18,14,0.4);margin-bottom:8px;">Signal quality from the right users matters far more than quantity.</div>
+        <p class="detail-body">19 个来自真实古着买家的小红书收藏，比 1000 个随机点赞更有价值。30 条具体的关键词修正反馈，对产品方向的影响远超任何用户访谈。以后会更早建立结构化反馈机制，而不是等 MVP 上线之后才想到。</p>
+        <p class="detail-body cn-sub">19 saves from real vintage buyers on Xiaohongshu are worth more than 1,000 random likes. 30 specific keyword correction entries shaped product direction more than any user interview. I'll build structured feedback mechanisms earlier — not wait until after MVP launch to think of them.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:8px;">产品还未解决的问题 / Open Problems</h3>
+  <div class="criteria-list">
+    <div class="criteria-item">
+      <div class="criteria-title">模型准确率 / Model Accuracy</div>
+      <div class="criteria-desc">当前 70%，距目标 90% 仍有差距，小众包款覆盖不足<span class="cn-sub" style="display:block;margin-top:4px;">Currently 70%, still 20 points short of the 90% target; niche bag models remain underrepresented</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">图片 URL 上传 / Image URL Input</div>
+      <div class="criteria-desc">尚未打通，目前仅支持文字描述和视觉识别<span class="cn-sub" style="display:block;margin-top:4px;">Not yet supported — currently accepts text descriptions and direct image uploads only</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">无移动端 / No Mobile Support</div>
+      <div class="criteria-desc">全流程依赖桌面浏览器<span class="cn-sub" style="display:block;margin-top:4px;">The entire flow requires a desktop browser</span></div>
+    </div>
+    <div class="criteria-item">
+      <div class="criteria-title">主动放弃价格抓取 / Price Scraping Intentionally Excluded</div>
+      <div class="criteria-desc">不做全平台聚合市场，专注关键词精准度<span class="cn-sub" style="display:block;margin-top:4px;">No cross-platform price aggregation — focus remains on keyword precision</span></div>
+    </div>
   </div>
 </div>
+
 `,
   photo: `
 <div class="detail-header">
