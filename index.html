@@ -1141,27 +1141,22 @@ const nuoHTML = `
     <div class="phase-item">
       <div class="phase-num">PHASE 01</div>
       <div class="phase-title">Cultural Research / 文化研究</div>
-      <div class="img-placeholder-block">img/nuo-phase01.jpg</div>
     </div>
     <div class="phase-item">
       <div class="phase-num">PHASE 02</div>
       <div class="phase-title">Mood Definition / 情绪定调</div>
-      <div class="img-placeholder-block">img/nuo-phase02.jpg</div>
     </div>
     <div class="phase-item">
       <div class="phase-num">PHASE 03</div>
       <div class="phase-title">Form Exploration / 形态探索</div>
-      <div class="img-placeholder-block">img/nuo-phase03.jpg</div>
     </div>
     <div class="phase-item">
       <div class="phase-num">PHASE 04</div>
       <div class="phase-title">Pattern Generation / 纹样生成</div>
-      <div class="img-placeholder-block">img/nuo-phase04.jpg</div>
     </div>
     <div class="phase-item">
       <div class="phase-num">PHASE 05</div>
       <div class="phase-title">3D + Prototyping / 三维建模与原型</div>
-      <div class="img-placeholder-block">img/nuo-phase05.jpg</div>
     </div>
   </div>
 </div>
@@ -1187,8 +1182,24 @@ const nuoHTML = `
         </div>
         <span class="img-caption">Set 1: White tiger / Primal force / Forest<br>第一组：白虎 / 原始力量 / 森林</span>
       </div>
-      <div class="img-placeholder-block">img/nuo-mood-set2-a.jpg<br><span class="img-caption">Set 2: Mystery / Ritual / Primal force<br>第二组：神秘 / 仪式感 / 原始力量</span></div>
-      <div class="img-placeholder-block">img/nuo-mood-set3-a.jpg<br><span class="img-caption">Set 3: Life-death cycle / Growth / Ritual<br>第三组：生死循环 / 生长 / 仪式</span></div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <img src="./images/nuo-mood-set2-a.png" alt="神秘/仪式感/原始力量 1" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set2-b.png" alt="神秘/仪式感/原始力量 2" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set2-c.png" alt="神秘/仪式感/原始力量 3" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set2-d.png" alt="神秘/仪式感/原始力量 4" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+        </div>
+        <span class="img-caption">Set 2: Mystery / Ritual / Primal force<br>第二组：神秘 / 仪式感 / 原始力量</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+          <img src="./images/nuo-mood-set3-a.png" alt="生死循环/生长/仪式 1" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set3-b.png" alt="生死循环/生长/仪式 2" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set3-c.png" alt="生死循环/生长/仪式 3" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+          <img src="./images/nuo-mood-set3-d.png" alt="生死循环/生长/仪式 4" style="width:100%; border-radius:8px; display:block; aspect-ratio:1; object-fit:cover;">
+        </div>
+        <span class="img-caption">Set 3: Life-death cycle / Growth / Ritual<br>第三组：生死循环 / 生长 / 仪式</span>
+      </div>
     </div>
   </div>
 
@@ -1199,9 +1210,9 @@ const nuoHTML = `
       I analyzed a white tiger photograph by hand, progressively extracting the climbing gesture: first the dynamic curve, then geometric blocks, then curved surfaces, then the final silhouette. This human analysis preceded any AI generation — I needed to understand the movement before asking AI to interpret it.
     </p>
     <p class="detail-body cn-sub">我手动分析了一张白虎照片，渐进式提取攀升姿态：先是动态曲线，再是几何体块，然后是曲面，最后是最终轮廓。这个人工分析先于任何AI生成——我需要先理解这个运动，才能让AI去诠释它。</p>
-    <div class="img-grid-2">
-      <div class="img-placeholder-block">img/nuo-sketch-gesture-a.jpg<br><span class="img-caption">Pure movement sketch / 纯动态草图</span></div>
-      <div class="img-placeholder-block">img/nuo-sketch-gesture-b.jpg<br><span class="img-caption">Form + tiger stripe integration / 形态与虎纹整合</span></div>
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <img src="images/nuo-sketch-gesture-b.jpg" alt="Form + tiger stripe integration" style="width:100%;display:block;border-radius:8px;">
+      <span class="img-caption">Form + tiger stripe integration / 形态与虎纹整合</span>
     </div>
   </div>
 
@@ -1222,9 +1233,9 @@ const nuoHTML = `
     <p class="detail-body cn-sub">我将AI生成的虎纹图案打印出来，折叠成三维纸模，测试这些形态在真实物理空间中是否可行。纸模揭示了屏幕无法呈现的问题：纹样在曲面上的表现、结构节点需要加固的位置，以及哪些比例拿在手中感觉才对。</p>
     <p class="detail-body">This loop — AI generation → print → fold → evaluate → adjust prompt → regenerate — ran 5–6 times before the final form was locked.</p>
     <p class="detail-body cn-sub">这个循环——AI生成 → 打印 → 折叠 → 评估 → 调整prompt → 再生成——跑了5-6次才锁定最终形态。</p>
-    <div class="img-grid-2">
-      <div class="img-placeholder-block">img/nuo-papermodel-a.jpg<br><span class="img-caption">Paper model tests / 纸模测试</span></div>
-      <div class="img-placeholder-block">img/nuo-iteration-timeline.jpg<br><span class="img-caption">Complete iteration timeline: one curve → ten form studies / 完整迭代时间线：一条曲线→十个形态研究</span></div>
+    <div style="margin-top:20px;">
+      <img src="images/nuo-iteration-timeline.png" alt="Complete iteration timeline: one curve → ten form studies / 完整迭代时间线：一条曲线→十个形态研究" style="width:100%; border-radius:10px; display:block;">
+      <span class="img-caption">Complete iteration timeline: one curve → ten form studies / 完整迭代时间线：一条曲线→十个形态研究</span>
     </div>
   </div>
 </div>
@@ -1250,13 +1261,19 @@ const nuoHTML = `
       <div class="criteria-desc">Symmetrical, high-density patterns that read as a tiger at arm's length. Sparse or asymmetrical outputs eliminated.<br><span class="cn-sub" style="display:block;margin-top:4px;">对称、高密度的纹样，在臂展距离处应能被识别为老虎。稀疏或不对称的输出被淘汰。</span></div>
     </div>
   </div>
-  <div class="img-grid-3" style="margin-top:24px;">
-    <div class="img-placeholder-block">img/nuo-pattern-a.jpg</div>
-    <div class="img-placeholder-block">img/nuo-pattern-b.jpg</div>
-    <div class="img-placeholder-block">img/nuo-pattern-c.jpg</div>
-    <div class="img-placeholder-block">img/nuo-pattern-d.jpg</div>
-    <div class="img-placeholder-block">img/nuo-pattern-e.jpg</div>
-    <div class="img-placeholder-block">img/nuo-pattern-f.jpg<br><span class="img-caption">Selected patterns printed + folded onto paper models to test on curves / 筛选纹样打印后折叠于纸模上测试曲面效果</span></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:24px;">
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <img src="images/nuo-pattern-a.jpg" alt="Tiger pattern generation A" style="width:100%; display:block; border-radius:8px;">
+      <img src="images/nuo-pattern-d.jpg" alt="Tiger pattern generation D" style="width:100%; display:block; border-radius:8px;">
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+      <img src="images/nuo-pattern-b.jpg" alt="Tiger pattern generation B" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;">
+      <img src="images/nuo-pattern-e.jpg" alt="Tiger pattern generation E" style="width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <img src="images/nuo-pattern-c.jpg" alt="Tiger pattern generation C" style="width:100%; display:block; border-radius:8px;">
+      <img src="images/nuo-pattern-f.jpg" alt="Tiger pattern generation F" style="width:100%; display:block; border-radius:8px;">
+    </div>
   </div>
 </div>
 
@@ -1267,7 +1284,8 @@ const nuoHTML = `
     Every piece was 3D-printed at least three times in Rhino before committing to walnut. The fabrication process — walnut lathe, hand carving, CNC-engraved tiger patterns, silver inlay — revealed challenges AI could never predict: wood cracking along the grain, silver components not fitting into curved cavities, and AI-generated pattern lines too fine for the CNC router, requiring manual optimization.
   </p>
   <p class="detail-body cn-sub">每件作品在Rhino中至少3D打印了三次才进入胡桃木制作。制作过程暴露了AI永远无法预测的挑战：木头沿纹理开裂、银配件无法嵌入弯曲的凹槽、AI生成的纹路太细导致CNC无法雕刻，需要手动优化。</p>
-  <div class="img-placeholder-block tall">img/nuo-final-objects.jpg<br><span class="img-caption">Five completed ritual objects / 五件完成的仪式器物</span></div>
+  <iframe src="images/nuo-final-objects.pdf" style="width:100%; height:80vh; border:none; border-radius:10px; display:block;" title="Five completed ritual objects / 五件完成的仪式器物"></iframe>
+  <span class="img-caption">Five completed ritual objects / 五件完成的仪式器物</span>
 </div>
 
 <!-- REFLECTION -->
