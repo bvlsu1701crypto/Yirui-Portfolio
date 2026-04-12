@@ -1080,6 +1080,9 @@ const projectMeta = {
   vintage: { num:'02', title:'古着包跨平台搜索工具', titleCn:'Vintage Cross-Platform Search', type:'AI Product', color:'#6ab04c' },
   photo:   { num:'04', title:'Wangdada-Lifestyle and Dietary Assistant', titleCn:'王大大生活化饮食助手', type:'WeChat Mini Program', color:'#c678a0' },
   m8:      { num:'05', title:'M8 Macau', titleCn:'澳门天台装置', type:'Spatial · Installation', color:'#e0a03a' },
+  other02: { num:'05.1', title:'Interactive Design of "Wind"', titleCn:'《风》交互设计', type:'Interactive · Video', color:'#e0a03a' },
+  other03: { num:'05.2', title:'The Black Box · AI Art Project', titleCn:'黑盒 AI 艺术探索', type:'AI · Art', color:'#e0a03a' },
+  other04: { num:'05.3', title:'The Whale Installation Art', titleCn:'场地装置设计', type:'Installation · Video', color:'#e0a03a' },
 };
 
 // ── Nuó detail HTML ───────────────────────────────────────────────────────
@@ -1348,27 +1351,68 @@ const m8HTML = `
   <div class="detail-section-label">Selected Works / 精选作品</div>
   <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; margin-top:16px;">
 
-    <div>
-      <h3 class="section-heading" style="margin-bottom:12px;">01 — Generative Media Creation<br><span class="cn-sub">生成式媒体创作</span></h3>
-      <div class="img-placeholder-block tall">img/other-01.jpg</div>
+    <div onclick="openDetail('other02')" style="cursor:pointer;">
+      <h3 class="section-heading" style="margin-bottom:12px;">01 — Interactive Design of "Wind"<br><span class="cn-sub">《风》交互设计</span></h3>
+      <img src="images/other-02.jpg" alt="Interactive Design of Wind" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; display:block;">
     </div>
 
-    <div>
-      <h3 class="section-heading" style="margin-bottom:12px;">02 — Interactive Design of "Wind"<br><span class="cn-sub">《风》交互设计</span></h3>
-      <div class="img-placeholder-block tall">img/other-02.jpg</div>
+    <div onclick="openDetail('other03')" style="cursor:pointer;">
+      <h3 class="section-heading" style="margin-bottom:12px;">02 — The Black Box · AI Art Project<br><span class="cn-sub">黑盒 AI 艺术探索</span></h3>
+      <img src="images/other-03.jpg" alt="The Black Box AI Art Project" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; display:block;">
     </div>
 
-    <div>
-      <h3 class="section-heading" style="margin-bottom:12px;">03 — The Black Box · AI Art Project<br><span class="cn-sub">黑盒 AI 艺术探索</span></h3>
-      <div class="img-placeholder-block tall">img/other-03.jpg</div>
-    </div>
-
-    <div>
-      <h3 class="section-heading" style="margin-bottom:12px;">04 — The Whale Installation Art<br><span class="cn-sub">场地装置设计</span></h3>
-      <div class="img-placeholder-block tall">img/other-04.jpg</div>
+    <div onclick="openDetail('other04')" style="cursor:pointer;">
+      <h3 class="section-heading" style="margin-bottom:12px;">03 — The Whale Installation Art<br><span class="cn-sub">场地装置设计</span></h3>
+      <img src="images/other-04.jpg" alt="The Whale Installation Art" style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:8px; display:block;">
     </div>
 
   </div>
+</div>
+`;
+
+const other02HTML = `
+<div class="detail-header">
+  <button onclick="openDetail('m8')" style="background:none;border:none;cursor:pointer;font-size:13px;color:rgba(20,18,14,0.45);padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;">← Other Works</button>
+  <div class="detail-num">05.1</div>
+  <div class="detail-title">Interactive Design of "Wind"</div>
+  <div class="detail-title-cn">《风》交互设计</div>
+  <span class="detail-type">Interactive · Video</span>
+</div>
+<div class="detail-section">
+  <div class="detail-section-label">Video / 视频</div>
+  <video src="images/wind-video.mp4" controls style="width:100%;border-radius:10px;display:block;" preload="metadata"></video>
+</div>
+`;
+
+const other03HTML = `
+<div class="detail-header">
+  <button onclick="openDetail('m8')" style="background:none;border:none;cursor:pointer;font-size:13px;color:rgba(20,18,14,0.45);padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;">← Other Works</button>
+  <div class="detail-num">05.2</div>
+  <div class="detail-title">The Black Box · AI Art Project</div>
+  <div class="detail-title-cn">黑盒 AI 艺术探索</div>
+  <span class="detail-type">AI · Art</span>
+</div>
+<div class="detail-section">
+  <div class="detail-section-label">Document 01 / 文件一</div>
+  <iframe src="images/blackbox-doc01.pdf" style="width:100%;height:80vh;border:none;border-radius:10px;display:block;" title="报告书a6确定版"></iframe>
+</div>
+<div class="detail-section">
+  <div class="detail-section-label">Document 02 / 文件二</div>
+  <iframe src="images/blackbox-doc02.pdf" style="width:100%;height:80vh;border:none;border-radius:10px;display:block;" title="字"></iframe>
+</div>
+`;
+
+const other04HTML = `
+<div class="detail-header">
+  <button onclick="openDetail('m8')" style="background:none;border:none;cursor:pointer;font-size:13px;color:rgba(20,18,14,0.45);padding:0;margin-bottom:16px;display:flex;align-items:center;gap:6px;">← Other Works</button>
+  <div class="detail-num">05.3</div>
+  <div class="detail-title">The Whale Installation Art</div>
+  <div class="detail-title-cn">场地装置设计</div>
+  <span class="detail-type">Installation · Video</span>
+</div>
+<div class="detail-section">
+  <div class="detail-section-label">Video / 视频</div>
+  <video src="images/whale-video.mp4" controls style="width:100%;border-radius:10px;display:block;" preload="metadata"></video>
 </div>
 `;
 
@@ -2227,6 +2271,9 @@ const detailHTML = {
 </div>
 `,
   m8:      m8HTML,
+  other02: other02HTML,
+  other03: other03HTML,
+  other04: other04HTML,
 };
 
 // ── open / close ──────────────────────────────────────────────────────────
